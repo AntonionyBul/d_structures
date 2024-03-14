@@ -1,12 +1,16 @@
 [gd_scene load_steps=2 format=3 uid="uid://fixmrf0fbg6t"]
 
-[ext_resource type="PackedScene" uid="uid://bah2qg12w4y50" path="res://2level.tscn" id="1_bxunf"]
+[ext_resource type="PackedScene" uid="uid://bah2qg12w4y50" path="res://1level.tscn" id="1_bxunf"]
 
 [node name="MainScene" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -115.0
+offset_right = -3.0
+offset_bottom = -115.0
 grow_horizontal = 2
 grow_vertical = 2
 
