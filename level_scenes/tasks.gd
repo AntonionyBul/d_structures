@@ -31,7 +31,6 @@ func third_task(vec1, vec2, n):
 		cnt+=1
 	n=cnt-n+1
 	var s=""
-<<<<<<< HEAD:tasks.gd
 	var x=0
 	var y=0
 	for i in range(0,len(vec1)+len(vec2)):
@@ -42,11 +41,3 @@ func third_task(vec1, vec2, n):
 			s+=vec2[y]
 			y+=1
 	print(s)
-=======
-#	for i in range(0,len(vec1)+len(vec2)):
-#		if(i%(1<<n)/(1<<(n-1))==0):
-#			s+=v1.pop_front()
-#		if(i%(1<<n)/(1<<(n-1))==1):
-#			s+=v2.pop_front()
-#	print(s)
->>>>>>> d6ed0b6 (2_3_levels_ux):level_scenes/tasks.gd

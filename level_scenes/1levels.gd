@@ -20,9 +20,6 @@ func _on_button_pressed():
 			$RichTextLabel.set_text("")
 
 
-# 01 11 01 00
-# 01 23 45 67
-
 func add_info(binum, bin_len):
 	var s = ""
 	for i in binum: 
