@@ -1,6 +1,6 @@
 extends Control
 
-@onready var task = preload("res://tasks.gd").new()
+@onready var task = preload("res://level_scenes/tasks.gd").new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	task.third_task("0000", "1111", 3)
@@ -12,13 +12,13 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	if $TextEdit.get_text() != "":
-		$RichTextLabel.set_text(task.first_task(int($TextEdit.get_text())))
+	if $input_1.get_text() != "":
+		$output_1.set_text(task.first_task(int($input_1.get_text())))
 	else:
-			$RichTextLabel.set_text("")
+			$output_1.set_text("")
 
 
 
 func _on_text_edit_text_changed():
-	$TextEdit.set_text($TextEdit.get_text().replace("\n", ""))
-	$TextEdit.set_caret_column(1000)  #поменять на перевод в конец строки нормально
+	$input_1.set_text($input_1.get_text().replace("\n", ""))
+	$input_1.set_caret_column(1000)  #поменять на перевод в конец строки нормально
