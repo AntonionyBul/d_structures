@@ -23,9 +23,7 @@ func second_task(vec, bi, n):
 	print (s)
 
 func third_task(vec1, vec2, n):
-	#доделать
-	var v1=vec1.split("")
-	var v2=vec2.split("")
+	#сократить код
 	var cnt=0
 	var m=len(vec1)+len(vec2)
 	while(m!=1):
@@ -33,9 +31,13 @@ func third_task(vec1, vec2, n):
 		cnt+=1
 	n=cnt-n+1
 	var s=""
+	var x=0
+	var y=0
 	for i in range(0,len(vec1)+len(vec2)):
 		if(i%(1<<n)/(1<<(n-1))==0):
-			s+=v1.pop_front()
+			s+=vec1[x]
+			x+=1
 		if(i%(1<<n)/(1<<(n-1))==1):
-			s+=v2.pop_front()
+			s+=vec2[y]
+			y+=1
 	print(s)
