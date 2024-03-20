@@ -16,7 +16,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Tasks="*res://level_scenes/tasks.gd"
+Tasks="*res://tasks.gd"
 
 [display]
 

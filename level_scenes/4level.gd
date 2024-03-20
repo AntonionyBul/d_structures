@@ -18,8 +18,10 @@ func _ready():
 func _on_button_pressed():
 	if $Panel/choose_name.selected != -1:
 		print($Panel/output_1.get_text(), $Panel/choose_name.get_text())
-		#$Panel/output_1.set_text(task.fourth_task($Panel/choose_name.get_text(), $Panel/output_1.get_text()))
-		
+		if (task.fourth_task($Panel/choose_name.get_text(), $Panel/output_1.get_text())):
+			print("Congrats!")
+		else:
+			print("Loser")
 	else:
 		$Panel/output_1.set_text("write right wtite")
 
