@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cotmiklg46bps"]
 
 [ext_resource type="Texture2D" uid="uid://chegk14kr8w3h" path="res://icon.svg" id="1_xs64u"]
-[ext_resource type="Script" path="res://level_scenes/1levels.gd" id="1_ymrxb"]
+[ext_resource type="Script" path="res://level_scenes/1level.gd" id="1_ymrxb"]
 
 [node name="Control" type="Panel"]
 anchors_preset = -1

@@ -13,6 +13,7 @@ grow_vertical = 2
 script = ExtResource("1_x8stg")
 
 [node name="Panel" type="Panel" parent="."]
+layout_mode = 0
 offset_right = 800.0
 offset_bottom = 340.0
 
@@ -51,3 +52,5 @@ offset_left = 455.0
 offset_top = 25.0
 offset_right = 771.0
 offset_bottom = 127.0
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

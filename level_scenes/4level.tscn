@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjumiuds0dnkk"]
+
+[ext_resource type="Script" path="res://level_scenes/4level.gd" id="1_jtg7e"]
+[ext_resource type="Texture2D" uid="uid://chegk14kr8w3h" path="res://icon.svg" id="1_wkjw6"]
+
+[node name="4Level" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_jtg7e")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 340.0
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 156.0
+offset_right = 762.0
+offset_bottom = 292.0
+icon = ExtResource("1_wkjw6")
+
+[node name="output_1" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 25.0
+offset_right = 297.0
+offset_bottom = 101.0
+
+[node name="choose_name" type="OptionButton" parent="Panel"]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 25.0
+offset_right = 762.0
+offset_bottom = 73.0
+
+[node name="again" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 484.0
+offset_top = 156.0
+offset_right = 612.0
+offset_bottom = 211.0
+text = "Начать заново"
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/again" to="." method="_on_again_pressed"]

@@ -40,4 +40,4 @@ func third_task(vec1, vec2, n):
 		if(i%(1<<n)/(1<<(n-1))==1):
 			s+=vec2[y]
 			y+=1
-	print(s)
+	return(s)
