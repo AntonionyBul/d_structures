@@ -3,10 +3,10 @@ class_name tasks
 
 func first_task(n):
 	var m = 1<<n
-	var f = ""
+	var f = []
 	for i in range(0, m):
-		f+=str(randi_range(0, 1))
-	return f
+		f.append(randi_range(0, 1))
+	return str(f)
 
 func second_task(vec, bi, n):
 	#пример

@@ -25,11 +25,9 @@ func add_info(binum, bin_len):
 	for i in binum: 
 		s += str(i)
 	var parsed = JSON.parse_string(FileAccess.get_file_as_string("res://save1.json"))
-	if is_instance_valid(parsed[bin_len][s]):
+	if int(bin_len)<3:
 		parsed[bin_len][s] += 1
-		
 	FileAccess.open("res://save1.json", FileAccess.WRITE).store_string(JSON.stringify(parsed))
-	print(typeof(parsed))
 
 func _on_text_edit_text_changed():
 	$TextEdit.set_text($TextEdit.get_text().replace("\n", ""))
