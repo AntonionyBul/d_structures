@@ -64,5 +64,12 @@ func fourth_task(x,y):
 	return 0
 
 func fifth_task(v, s, n):
+	var ans=""
+	for i in range (1,n+1):
+		if second_task(v,0,i)==second_task(v,1,i):
+			ans+=str(i)
+	if(s==ans):
+		print("win")
+		return 0
 	return 0
 
