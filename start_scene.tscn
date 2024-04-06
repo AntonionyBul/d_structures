@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://n4efwaio1tv2"]
+[gd_scene load_steps=3 format=3 uid="uid://n4efwaio1tv2"]
+
+[ext_resource type="Script" path="res://start_scene.gd" id="1_m7gv8"]
+[ext_resource type="Script" path="res://level_btn.gd" id="2_wo500"]
 
 [node name="StartScene" type="Control"]
 layout_mode = 3
@@ -7,3 +10,125 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_m7gv8")
+
+[node name="1level" type="Button" parent="."]
+layout_mode = 0
+offset_left = 366.0
+offset_top = 229.0
+offset_right = 524.0
+offset_bottom = 275.0
+text = "1 уровень"
+script = ExtResource("2_wo500")
+
+[node name="2level" type="Button" parent="."]
+layout_mode = 0
+offset_left = 366.0
+offset_top = 304.0
+offset_right = 524.0
+offset_bottom = 350.0
+text = "2 уровень"
+script = ExtResource("2_wo500")
+
+[node name="3level" type="Button" parent="."]
+layout_mode = 0
+offset_left = 366.0
+offset_top = 384.0
+offset_right = 524.0
+offset_bottom = 430.0
+text = "3 уровень"
+script = ExtResource("2_wo500")
+
+[node name="4level" type="Button" parent="."]
+layout_mode = 0
+offset_left = 366.0
+offset_top = 456.0
+offset_right = 524.0
+offset_bottom = 502.0
+text = "4 уровень"
+script = ExtResource("2_wo500")
+
+[node name="5level" type="Button" parent="."]
+layout_mode = 0
+offset_left = 557.0
+offset_top = 229.0
+offset_right = 715.0
+offset_bottom = 275.0
+text = "5 уровень"
+script = ExtResource("2_wo500")
+
+[node name="6level" type="Button" parent="."]
+layout_mode = 0
+offset_left = 557.0
+offset_top = 304.0
+offset_right = 715.0
+offset_bottom = 350.0
+text = "6 уровень"
+script = ExtResource("2_wo500")
+
+[node name="7level" type="Button" parent="."]
+layout_mode = 0
+offset_left = 557.0
+offset_top = 384.0
+offset_right = 715.0
+offset_bottom = 430.0
+text = "7 уровень"
+script = ExtResource("2_wo500")
+
+[node name="8level" type="Button" parent="."]
+layout_mode = 0
+offset_left = 557.0
+offset_top = 456.0
+offset_right = 715.0
+offset_bottom = 502.0
+text = "8 уровень"
+script = ExtResource("2_wo500")
+
+[node name="9level" type="Button" parent="."]
+layout_mode = 0
+offset_left = 746.0
+offset_top = 229.0
+offset_right = 904.0
+offset_bottom = 275.0
+text = "9 уровень"
+script = ExtResource("2_wo500")
+
+[node name="10level" type="Button" parent="."]
+layout_mode = 0
+offset_left = 746.0
+offset_top = 304.0
+offset_right = 904.0
+offset_bottom = 350.0
+text = "10 уровень"
+script = ExtResource("2_wo500")
+
+[node name="11level" type="Button" parent="."]
+layout_mode = 0
+offset_left = 746.0
+offset_top = 384.0
+offset_right = 904.0
+offset_bottom = 430.0
+text = "11 уровень"
+script = ExtResource("2_wo500")
+
+[node name="12level" type="Button" parent="."]
+layout_mode = 0
+offset_left = 746.0
+offset_top = 456.0
+offset_right = 904.0
+offset_bottom = 502.0
+text = "12 уровень"
+script = ExtResource("2_wo500")
+
+[connection signal="button_down" from="1level" to="1level" method="_on_button_down"]
+[connection signal="button_down" from="2level" to="2level" method="_on_button_down"]
+[connection signal="button_down" from="3level" to="3level" method="_on_button_down"]
+[connection signal="button_down" from="4level" to="4level" method="_on_button_down"]
+[connection signal="button_down" from="5level" to="5level" method="_on_button_down"]
+[connection signal="button_down" from="6level" to="6level" method="_on_button_down"]
+[connection signal="button_down" from="7level" to="7level" method="_on_button_down"]
+[connection signal="button_down" from="8level" to="8level" method="_on_button_down"]
+[connection signal="button_down" from="9level" to="9level" method="_on_button_down"]
+[connection signal="button_down" from="10level" to="10level" method="_on_button_down"]
+[connection signal="button_down" from="11level" to="11level" method="_on_button_down"]
+[connection signal="button_down" from="12level" to="12level" method="_on_button_down"]

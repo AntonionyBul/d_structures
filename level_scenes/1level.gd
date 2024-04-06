@@ -32,3 +32,8 @@ func add_info(binum, bin_len):
 func _on_text_edit_text_changed():
 	$TextEdit.set_text($TextEdit.get_text().replace("\n", ""))
 	$TextEdit.set_caret_column(1000)  #поменять на перевод в конец строки нормально
+
+
+func _on_come_back_button_down():
+	get_tree().change_scene_to_file("res://start_scene.tscn")
+
