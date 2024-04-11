@@ -3,10 +3,10 @@ class_name tasks
 
 func first_task(n):
 	var m = 1<<n
-	var f = []
+	var f = ""
 	for i in range(0, m):
-		f.append(randi_range(0, 1))
-	return str(f)
+		f+=str(randi_range(0, 1))
+	return f
 
 func second_task(vec, bi, n):
 	#пример
@@ -72,4 +72,30 @@ func fifth_task(v, s, n):
 		print("win")
 		return 0
 	return 0
-
+	
+func eigth_task(v):
+	var ans=""
+	var cnt=0
+	var m=len(v)
+	while(m!=1):
+		m=m>>1
+		cnt+=1
+	var matrix = []
+	for i in range (0, 1<<cnt):
+		matrix.append([])
+		for j in range(cnt-1, -1, -1):
+			matrix[i].append(i/(1<<j)%2)
+	for i in len(v):
+		if (v[i]=="1"):
+			for j in len(matrix[i]):
+				if(matrix[i][j]==1):
+					ans+="x"+str(j+1)+"&"
+				else:
+					ans+="-x"+str(j+1)+"&"
+			ans[len(ans)-1]=""
+			ans+=" v "
+	#вот эту штуку потехничнее сделать
+	ans[len(ans)-1]=""
+	ans[len(ans)-1]=""
+	print(ans)
+	

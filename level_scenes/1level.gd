@@ -25,15 +25,12 @@ func add_info(binum, bin_len):
 	for i in binum: 
 		s += str(i)
 	var parsed = JSON.parse_string(FileAccess.get_file_as_string("res://save1.json"))
-	if int(bin_len)<3:
+	if is_instance_valid(parsed[bin_len][s]):
 		parsed[bin_len][s] += 1
+		
 	FileAccess.open("res://save1.json", FileAccess.WRITE).store_string(JSON.stringify(parsed))
+	print(typeof(parsed))
 
 func _on_text_edit_text_changed():
 	$TextEdit.set_text($TextEdit.get_text().replace("\n", ""))
 	$TextEdit.set_caret_column(1000)  #поменять на перевод в конец строки нормально
-
-
-func _on_come_back_button_down():
-	get_tree().change_scene_to_file("res://start_scene.tscn")
-
