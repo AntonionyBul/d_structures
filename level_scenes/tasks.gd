@@ -126,7 +126,51 @@ func fifth_task(v, s, n):
 		print("win")
 		return 0
 	return 0
+
+func sixth_task():
+	var parse_DNF = func (expression):
+		var dnf_list = []
+		var sub_expression = {}
+		var is_negative = false
+		var current_var = ""
+
+		for i in range(0, len(expression)):
+			if expression[i]>='A' and expression[i]<='z' and expression[i]!='V':
+				current_var += expression[i+1]
+			elif expression[i] == "-":
+				is_negative = true
+			elif expression[i] == " ":
+				if current_var:
+					var var_index = int(current_var)
+					sub_expression[var_index] = not is_negative
+					current_var = ""
+					is_negative = false
+			elif expression[i] == "V":
+				if sub_expression:
+					dnf_list.append(sub_expression)
+					sub_expression = {}
+		if sub_expression:
+			dnf_list.append(sub_expression)
+		
+		return dnf_list
+
+	var dnf_expression = "X1 - X2 V X3 "
+	var dnf = parse_DNF.call(dnf_expression)
+
+	var f = func (args: Array):
+		for clause in dnf:
+			var satisfied = true
+			for keys in clause:
+				if args[keys-1] != clause[keys]:
+					satisfied = false
+					break
+			if satisfied:
+				return true
+		return false
 	
+	print(f.call([true, false, false]))
+
+
 func eigth_task(v):
 	var ans=""
 	var cnt=0
@@ -152,6 +196,7 @@ func eigth_task(v):
 	ans[len(ans)-1]=""
 	ans[len(ans)-1]=""
 	print(ans)
+<<<<<<< HEAD
 	
 func tenth_task(v, ans):
 	var s=""
@@ -225,3 +270,5 @@ func eleventh_task(system, inp):
 		print("loose")
 
 
+=======
+>>>>>>> 2e54021 (sixth_task_start)
