@@ -164,14 +164,9 @@ func sixth_task(dnf_expression, v):
 				return true
 		return false
 	
-<<<<<<< HEAD
-func eighth_task(v):
-=======
-	print(f.call([true, false, false]))
 
 
 func eigth_task(v):
->>>>>>> a5ab4e792d282c96e2b4669c1bcf7fe7fc4302f9
 	var ans=""
 	var cnt=0
 	var m=len(v)
@@ -296,16 +291,7 @@ func eleventh_task(system, inp):
 		print("win")
 	else:
 		print("loose")
-<<<<<<< HEAD
-<<<<<<< HEAD
 		
 func twelveth_task(s):
 	return 0
-=======
 
-
-=======
->>>>>>> 2e54021 (sixth_task_start)
->>>>>>> a5ab4e792d282c96e2b4669c1bcf7fe7fc4302f9
-=======
->>>>>>> 1c97887ec5a3b551bb18752b5cdee53b6a9a51fb

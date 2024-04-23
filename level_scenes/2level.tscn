@@ -16,6 +16,7 @@ grow_vertical = 2
 script = ExtResource("1_0ut54")
 
 [node name="Button" type="Button" parent="."]
+layout_mode = 0
 offset_left = 624.0
 offset_top = 156.0
 offset_right = 762.0
@@ -23,24 +24,28 @@ offset_bottom = 292.0
 icon = ExtResource("1_8poen")
 
 [node name="input_1" type="TextEdit" parent="."]
+layout_mode = 0
 offset_left = 38.0
 offset_top = 28.0
 offset_right = 260.0
 offset_bottom = 105.0
 
 [node name="input_2" type="TextEdit" parent="."]
+layout_mode = 0
 offset_left = 38.0
 offset_top = 125.0
 offset_right = 260.0
 offset_bottom = 202.0
 
 [node name="input_3" type="TextEdit" parent="."]
+layout_mode = 0
 offset_left = 38.0
 offset_top = 227.0
 offset_right = 260.0
 offset_bottom = 304.0
 
 [node name="output_1" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 455.0
 offset_top = 25.0
 offset_right = 771.0
