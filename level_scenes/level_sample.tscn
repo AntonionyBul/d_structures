@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj5jj4mdodyeb"]
+
+[ext_resource type="Script" path="res://level_scenes/level_sample.gd" id="1_gtlqs"]
+
+[node name="LevelSample" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gtlqs")
+
+[node name="back_to_levels" type="Button" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 64.0
+offset_right = 173.0
+offset_bottom = 109.0
+
+[node name="previous_level" type="Button" parent="."]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 64.0
+offset_right = 549.0
+offset_bottom = 109.0
+text = "<-"
+
+[node name="next_level" type="Button" parent="."]
+layout_mode = 0
+offset_left = 768.0
+offset_top = 64.0
+offset_right = 813.0
+offset_bottom = 109.0
+text = "->"
+
+[node name="levels_option" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 575.0
+offset_top = 61.0
+offset_right = 744.0
+offset_bottom = 106.0
+
+[node name="back_to_levels2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1139.0
+offset_top = 61.0
+offset_right = 1184.0
+offset_bottom = 106.0
+text = "?"
