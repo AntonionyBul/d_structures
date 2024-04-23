@@ -3,54 +3,47 @@
 [ext_resource type="Script" path="res://level_scenes/2level.gd" id="1_0ut54"]
 [ext_resource type="Texture2D" uid="uid://chegk14kr8w3h" path="res://icon.svg" id="1_8poen"]
 
-[node name="2level" type="Control"]
-layout_mode = 3
+[node name="2level" type="Panel"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 256.0
+offset_top = 184.0
+offset_right = -224.0
+offset_bottom = -196.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0ut54")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_right = 800.0
-offset_bottom = 340.0
-
-[node name="Button" type="Button" parent="Panel"]
-layout_mode = 0
+[node name="Button" type="Button" parent="."]
 offset_left = 624.0
 offset_top = 156.0
 offset_right = 762.0
 offset_bottom = 292.0
 icon = ExtResource("1_8poen")
 
-[node name="input_1" type="TextEdit" parent="Panel"]
-layout_mode = 0
+[node name="input_1" type="TextEdit" parent="."]
 offset_left = 38.0
 offset_top = 28.0
 offset_right = 260.0
 offset_bottom = 105.0
 
-[node name="input_2" type="TextEdit" parent="Panel"]
-layout_mode = 0
+[node name="input_2" type="TextEdit" parent="."]
 offset_left = 38.0
 offset_top = 125.0
 offset_right = 260.0
 offset_bottom = 202.0
 
-[node name="input_3" type="TextEdit" parent="Panel"]
-layout_mode = 0
+[node name="input_3" type="TextEdit" parent="."]
 offset_left = 38.0
 offset_top = 227.0
 offset_right = 260.0
 offset_bottom = 304.0
 
-[node name="output_1" type="RichTextLabel" parent="Panel"]
-layout_mode = 0
+[node name="output_1" type="RichTextLabel" parent="."]
 offset_left = 455.0
 offset_top = 25.0
 offset_right = 771.0
 offset_bottom = 127.0
 
-[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

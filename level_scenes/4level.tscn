@@ -10,8 +10,10 @@ script = ExtResource("1_jtg7e")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_right = 800.0
-offset_bottom = 340.0
+offset_left = 256.0
+offset_top = 184.0
+offset_right = 1056.0
+offset_bottom = 524.0
 
 [node name="Button" type="Button" parent="Panel"]
 layout_mode = 0

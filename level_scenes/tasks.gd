@@ -13,12 +13,10 @@ func Is_T1(v):
 		return false
 		
 func Is_S(v):
-	var ch=true
 	for i in range(0, len(v)/2):
 		if(v[i]==v[len(v)-1-i]):
-			ch=false
-			break
-	return ch
+			return false
+	return true
 	
 func Is_M(v):
 	var is_monot=true
@@ -56,14 +54,12 @@ func Is_L(v):
 
 
 func first_task(n):
-	var m = 1<<n
 	var f = ""
-	for i in range(0, m):
+	for i in range(0, 1<<n):
 		f+=str(randi_range(0, 1))
 	return f
 
 func second_task(vec, bi, n):
-	#пример
 	var cnt=0
 	var m=len(vec)
 	while(m!=1):
@@ -127,7 +123,7 @@ func fifth_task(v, s, n):
 		return 0
 	return 0
 
-func sixth_task():
+func sixth_task(dnf_expression, v):
 	var parse_DNF = func (expression):
 		var dnf_list = []
 		var sub_expression = {}
@@ -154,8 +150,8 @@ func sixth_task():
 		
 		return dnf_list
 
-	var dnf_expression = "X1 - X2 V X3 "
-	var dnf = parse_DNF.call(dnf_expression)
+	var dnf_expression1 = "X1 - X2 V X3 "
+	var dnf = parse_DNF.call(dnf_expression1)
 
 	var f = func (args: Array):
 		for clause in dnf:
@@ -196,7 +192,6 @@ func eigth_task(v):
 	ans[len(ans)-1]=""
 	ans[len(ans)-1]=""
 	print(ans)
-<<<<<<< HEAD
 	
 func tenth_task(v, ans):
 	var s=""
@@ -268,7 +263,3 @@ func eleventh_task(system, inp):
 		print("win")
 	else:
 		print("loose")
-
-
-=======
->>>>>>> 2e54021 (sixth_task_start)

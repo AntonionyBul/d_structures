@@ -12,10 +12,10 @@ func _ready():
 	
 
 func _on_button_pressed():
-	if $Panel/input_1.get_text()!= "" && $Panel/input_2.get_text()!= "" && $Panel/input_3.get_text() != "":
-		$Panel/output_1.set_text(task.second_task($Panel/input_1.get_text(), int($Panel/input_2.get_text()), int($Panel/input_3.get_text())))
+	if $input_1.get_text()!= "" && $input_2.get_text()!= "" && $input_3.get_text() != "":
+		$output_1.set_text(task.second_task($input_1.get_text(), int($input_2.get_text()), int($input_3.get_text())))
 	else:
-		$Panel/output_1.set_text("write right wtite")
+		$output_1.set_text("write right wtite")
 
 
 #func _on_input_1_text_changed():
