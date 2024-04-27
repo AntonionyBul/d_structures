@@ -3,12 +3,7 @@ extends Control
 @onready var task = preload("res://level_scenes/tasks.gd").new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
-<<<<<<< HEAD
-	print("you're gay")
-	task.dnf_from_truth_vector("00001111")
-=======
 	pass
->>>>>>> 94ccf88 (add_all_level_scenes)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

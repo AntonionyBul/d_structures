@@ -48,3 +48,7 @@ offset_top = 61.0
 offset_right = 1184.0
 offset_bottom = 106.0
 text = "?"
+
+[connection signal="pressed" from="previous_level" to="." method="_on_previous_level_pressed"]
+[connection signal="pressed" from="next_level" to="." method="_on_next_level_pressed"]
+[connection signal="item_selected" from="levels_option" to="." method="_on_levels_option_item_selected"]

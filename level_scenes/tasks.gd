@@ -126,9 +126,15 @@ func fifth_task(v, s, n):
 	
 	if(s==ans):
 		print("win")
+<<<<<<< HEAD
 	else:
 		print("loose")
 	
+=======
+		return 0
+	print(ans)
+	return 0
+>>>>>>> 94ccf88 (add_all_level_scenes)
 
 # сам пиши
 func sixth_task(dnf_expression, v):
@@ -171,7 +177,7 @@ func sixth_task(dnf_expression, v):
 			if satisfied:
 				return true
 		return false
-	
+	print(f)
 
 #  Пользователь вводит вектор функции. Система строит СДНФ.
 # v - вектор функции (строка). Возвращаем строку, которая является СДНФ

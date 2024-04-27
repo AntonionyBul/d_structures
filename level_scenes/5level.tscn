@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://cjumiuds0dnkk"]
 
-[ext_resource type="Script" path="res://level_scenes/4level.gd" id="1_jtg7e"]
-[ext_resource type="Texture2D" uid="uid://chegk14kr8w3h" path="res://icon.svg" id="1_wkjw6"]
+[ext_resource type="Script" path="res://level_scenes/5level.gd" id="1_u6ya3"]
+[ext_resource type="Texture2D" uid="uid://chegk14kr8w3h" path="res://icon.svg" id="2_m7fkd"]
 
-[node name="4Level" type="Panel"]
+[node name="5Level" type="Panel"]
 offset_left = 256.0
 offset_top = 184.0
 offset_right = 1056.0
 offset_bottom = 524.0
-script = ExtResource("1_jtg7e")
+script = ExtResource("1_u6ya3")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
@@ -16,7 +16,7 @@ offset_left = 624.0
 offset_top = 156.0
 offset_right = 762.0
 offset_bottom = 292.0
-icon = ExtResource("1_wkjw6")
+icon = ExtResource("2_m7fkd")
 
 [node name="output_1" type="RichTextLabel" parent="."]
 layout_mode = 0

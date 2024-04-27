@@ -8,6 +8,7 @@ var names = ["тождественный ноль", "тождественная 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	task.sixth_task(1, 1)
 	$output_1.set_text(task.first_task(2))
 	for i in names:
 		$choose_name.add_item(i)
