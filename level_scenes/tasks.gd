@@ -52,13 +52,14 @@ func Is_L(v):
 	return p
 
 
-
+# На вход — число n, на выход — булева функция от n аргументов (строка f)
 func first_task(n):
 	var f = ""
 	for i in range(0, 1<<n):
 		f+=str(randi_range(0, 1))
 	return f
-
+	
+# На вход — вектор функции (v), 0 или 1 (bi), номер аргумента (n), на выход — соответствующая остаточная (строка s)
 func second_task(vec, bi, n):
 	var cnt=0
 	var m=len(vec)
@@ -71,7 +72,8 @@ func second_task(vec, bi, n):
 		if(i%(1<<n)/(1<<(n-1))==bi):
 			s+=(vec[i])
 	return(s)
-
+# На вход — два вектора (это нулевая и единичная остаточные функции по некоторому аргументу), номер аргумента, на выход — вектор функции.
+# vec1 - это нулевая остаточная (строка), vec2 - это единичная остаточная (строка), n - это номер переменной (аргумента) (целое число), s - возвращаемый вектор функции (строка)
 func third_task(vec1, vec2, n):
 	#сократить код
 	var cnt=0
@@ -91,7 +93,8 @@ func third_task(vec1, vec2, n):
 			s+=vec2[y]
 			y+=1
 	return(s)
-
+#Игра. Узнать имя функции от 2-х аргументов. Система предлагает вектор функции, пользователь выбирает «имя» (одно из 16).
+# Здесь x - это имя функции ,которое выбирает пользователь (вроде строка), y - вектор функции (строка), который ему предлагает система, возврашаем 1, если правильно и 0, если не правильно.
 func fourth_task(x,y):
 	var gr={"0000":"тождественный ноль",
 		"0001":"конъюнкция",
@@ -112,17 +115,22 @@ func fourth_task(x,y):
 	if(gr[y]==x):
 		return 1
 	return 0
-
+# Игра. Существенные и фиктивные переменные. Система предлагает вектор функции. Пользователь выбирает существенные и фиктивные переменные
+# Здесь v - это предлагаемый системой вектор (строка), s - строка с выбранными пользователем переменными по номерам (то есть что-то вроде "123", пишется без пробелов), n - число переменных функции.
+# в идеале от n можно избавиться с помощью логарифмов и находить его в самой функции, но это потом решим. Также вывод следует дописать, так как выводить win в командную строку такое себе.
 func fifth_task(v, s, n):
 	var ans=""
 	for i in range (1,n+1):
 		if second_task(v,0,i)==second_task(v,1,i):
 			ans+=str(i)
+	
 	if(s==ans):
 		print("win")
-		return 0
-	return 0
+	else:
+		print("loose")
+	
 
+# сам пиши
 func sixth_task(dnf_expression, v):
 	var parse_DNF = func (expression):
 		var dnf_list = []
@@ -165,7 +173,8 @@ func sixth_task(dnf_expression, v):
 		return false
 	
 
-
+#  Пользователь вводит вектор функции. Система строит СДНФ.
+# v - вектор функции (строка). Возвращаем строку, которая является СДНФ
 func eigth_task(v):
 	var ans=""
 	var cnt=0
@@ -192,6 +201,8 @@ func eigth_task(v):
 	ans[len(ans)-1]=""
 	print(ans)
 	
+# Пользователь вводит вектор функции. Система строит СКНФ.
+# v - вектор функции (строка). Возвращаем строку, которая является СКНФ
 func ninth_task(v):
 	var ans=""
 	var cnt=0
@@ -221,6 +232,9 @@ func ninth_task(v):
 	ans[len(ans)-1]=""
 	print(ans)
 	
+#Игра. Предполные классы б.ф. Система предлагает вектор функции. Пользователь должен выбрать предполные классы, которым эта функция принадлежит. Система определяет правильно выбраны классы или нет.
+# v - вектор функции (строка), ans - ответ пользователя, это строка, где без пробелов записаны классы, которые выбрал пользователь в порядке T0T1SML и ни в каком другом.
+
 func tenth_task(v, ans):
 	var s=""
 	if(Is_T0(v)):
@@ -245,6 +259,8 @@ func tenth_task(v, ans):
 	else:
 		print("loose")
 	
+#Игра. Полные системы б.ф. Система предлагает набор векторов функций. Пользователь определяет полным или нет является набор функций. Если система б.ф. неполна, то пользователь должен указать замкнутый класс, которому набор функций принадлежит.
+# system - это система векторов (массив строк), inp - ответ пользователя в таком же формате, как в 10: строка с классами в следующем порядке T0T1SML, 
 func eleventh_task(system, inp):
 	var ans=""
 	var cnt=0
@@ -292,6 +308,78 @@ func eleventh_task(system, inp):
 	else:
 		print("loose")
 		
+func generate_term(index, num_vars):
+	var term=[]
+	for i in range (num_vars):
+		var p=num_vars - i
+		if index & (1 << i):
+			term.append("x"+str(p))
+		else:
+			term.append("¬x"+str(p))
+	return term
+
+func can_combine(term1, term2):
+	var differences=0
+	for i in range (min(len(term1), len(term2))):
+		if(term1[i]!=term2[i]):
+			differences+=1
+			if (differences>1):
+				return false
+	return differences == 1
+	
+
+func minimize_terms(terms):
+	
+	while true:
+		var changed = false
+		var new_terms = []
+		var used = []
+		used.resize(terms.size())
+		for i in range(terms.size()):
+			if used[i]:
+				continue
+			for j in range(i + 1, terms.size()):
+				if used[j]:
+					continue
+				if can_combine(terms[i], terms[j]):
+					var new_term = []
+					for k in range(terms[i].size()):
+						if terms[i][k] == terms[j][k]:
+							new_term.append(terms[i][k])
+						else:
+							new_term.append("-")
+					if not new_terms.has(new_term) and not terms.has(new_term):
+						new_terms.append(new_term)
+						used[i] = true
+						used[j] = true
+						changed = true
+						break
+			if not used[i]:
+				new_terms.append(terms[i])
+		if not changed:
+			break
+		terms = new_terms
+	var result = []
+	for term in terms:
+		var dop=[]
+		for x in term:
+			if x!="-":
+				dop.append(x)
+		result.append(" ∧ ".join(dop))
+		#result.append(" ∧ ".join([x for x in term if x != "-"]))
+	return result
+
+func dnf_from_truth_vector(truth_vector):
+	var num_vars = log(len(truth_vector))/log(2)
+	var terms = []
+	
+	for i in range(1<<int(num_vars)):
+		if truth_vector[i] == '1':
+			terms.append(generate_term(i, num_vars))
+	
+	var minimized_terms = minimize_terms(terms)
+	return " ∨ ".join(minimized_terms)
+#по сути функция twelveth_task(s) и не нужна, так как она в консоль выводит результат, который возвращает dnf_from_truth_vector(truth_vector)
 func twelveth_task(s):
-	return 0
+	print(dnf_from_truth_vector(s))
 

@@ -1,49 +1,53 @@
-def find_minterms(func_values):
-    minterms = []
-    for i in range(len(func_values)):
-        if func_values[i] == 1:
-            minterms.append(format(i, 'b').zfill(len(func_values)))
-    return minterms
+def generate_term(index, num_vars):
+    term = []
+    for j in range(num_vars):
+        if (index >> j) & 1:
+            term.append(f"x{num_vars - j}")
+        else:
+            term.append(f"¬x{num_vars - j}")
+    return term
 
-def combine_terms(terms):
-    combined_terms = []
-    for i in range(len(terms)):
-        for j in range(i+1, len(terms)):
-            diff_count = 0
-            diff_index = 0
-            for k in range(len(terms[i])):
-                if terms[i][k] != terms[j][k]:
-                    diff_count += 1
-                    diff_index = k
-            if diff_count == 1:
-                new_term = list(terms[i])
-                new_term[diff_index] = '-'
-                combined_terms.append(''.join(new_term))
-    return combined_terms
+def can_combine(term1, term2):
+    differences = 0
+    for a, b in zip(term1, term2):
+        if a != b:
+            differences += 1
+            if differences > 1:
+                return False
+    return differences == 1
 
-def simplify_dnf(func_values):
-    minterms = find_minterms(func_values)
-    combined_terms = minterms.copy()
-    
+def minimize_terms(terms):
     while True:
-        new_combined_terms = combine_terms(combined_terms)
-        if new_combined_terms == combined_terms:
+        changed = False
+        new_terms = []
+        used = [False] * len(terms)
+        for i in range(len(terms)):
+            if used[i]:
+                continue
+            for j in range(i + 1, len(terms)):
+                if used[j]:
+                    continue
+                if can_combine(terms[i], terms[j]):
+                    new_term = [a if a == b else '-' for a, b in zip(terms[i], terms[j])]
+                    if new_term not in new_terms and new_term not in terms:
+                        new_terms.append(new_term)
+                        used[i] = True
+                        used[j] = True
+                        changed = True
+                        break
+            if not used[i]:
+                new_terms.append(terms[i])
+        if not changed:
             break
-        combined_terms = combined_terms + new_combined_terms
-    
-    dnf = []
-    for term in combined_terms:
-        dnf_term = []
-        for i in range(len(term)):
-            if term[i] == '0':
-                dnf_term.append('~x' + str(i+1))
-            elif term[i] == '1':
-                dnf_term.append('x' + str(i+1))
-        dnf.append('(' + ' & '.join(dnf_term) + ')')
-    
-    return ' | '.join(dnf)
+        terms = new_terms
+    return [" ∧ ".join(filter(lambda x: x != '-', term)) for term in terms]
+
+def dnf_from_truth_vector(truth_vector):
+    num_vars = len(truth_vector).bit_length() - 1
+    terms = [generate_term(i, num_vars) for i in range(2 ** num_vars) if truth_vector[i] == '1']
+    minimized_terms = minimize_terms(terms)
+    return " ∨ ".join(minimized_terms)
 
 # Пример использования
-func_values = [0, 1, 0, 1]
-dnf = simplify_dnf(func_values)
-print(dnf)
+truth_vector = '10101101'
+print(dnf_from_truth_vector(truth_vector))

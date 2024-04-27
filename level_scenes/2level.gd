@@ -3,7 +3,8 @@ extends Control
 @onready var task = preload("res://level_scenes/tasks.gd").new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	
+	task.fifth_task("11110000", "23", 3)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
