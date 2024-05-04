@@ -11,6 +11,7 @@ preload("res://level_scenes/10level.tscn"), preload("res://level_scenes/11level.
 preload("res://level_scenes/12level.tscn") ]
 var recent = 1
 
+
 func change_level(new):
 	if recent != new: 
 		$".".remove_child($".".get_child(-1))

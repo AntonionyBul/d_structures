@@ -356,10 +356,9 @@ func eleventh_task(system, inp):
 		ans+="L"
 	
 	if(inp==ans):
-		print("win")
-	else:
-		print("loose")
-		
+		return true
+	return false
+
 func generate_term(index, num_vars):
 	var term=[]
 	for i in range (num_vars):
@@ -433,5 +432,5 @@ func dnf_from_truth_vector(truth_vector):
 	return " ∨ ".join(minimized_terms)
 #по сути функция twelveth_task(s) и не нужна, так как она в консоль выводит результат, который возвращает dnf_from_truth_vector(truth_vector)
 func twelveth_task(s):
-	print(dnf_from_truth_vector(s))
+	return (dnf_from_truth_vector(s))
 

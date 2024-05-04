@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://c8i5xk68yki12"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://c8i5xk68yki12"]
 
 [ext_resource type="FontFile" uid="uid://7nwygn2tc1wa" path="res://it_tastes_like_SPRITE/refinery-25-semi-bold-maisfontes.fbec/refinery-25-semi-bold.ttf" id="1_dp0xb"]
+[ext_resource type="Texture2D" uid="uid://53xhb4s0rog2" path="res://it_tastes_like_SPRITE/disabled.png" id="2_mfsg6"]
 [ext_resource type="Texture2D" uid="uid://qhcwh6n4lujt" path="res://it_tastes_like_SPRITE/Screenshot from 2024-05-03 10-01-19.png" id="2_mhi40"]
 [ext_resource type="Texture2D" uid="uid://xaft412exkei" path="res://it_tastes_like_SPRITE/Screenshot from 2024-05-03 10-01-50.png" id="4_8ue54"]
 
@@ -8,11 +9,8 @@
 
 [sub_resource type="Texture2DRD" id="Texture2DRD_uo37q"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r6160"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_04ynf"]
+texture = ExtResource("2_mfsg6")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d2u1y"]
 content_margin_left = 4.0
@@ -62,7 +60,7 @@ CheckBox/icons/radio_unchecked = SubResource("Texture2DRD_nq1f1")
 CheckBox/icons/radio_unchecked_disabled = SubResource("Texture2DRD_nq1f1")
 CheckBox/icons/unchecked = SubResource("Texture2DRD_nq1f1")
 CheckBox/icons/unchecked_disabled = SubResource("Texture2DRD_nq1f1")
-CheckBox/styles/disabled = SubResource("StyleBoxEmpty_r6160")
+CheckBox/styles/disabled = SubResource("StyleBoxTexture_04ynf")
 CheckBox/styles/focus = SubResource("StyleBoxFlat_d2u1y")
 CheckBox/styles/hover = SubResource("StyleBoxTexture_en1dg")
 CheckBox/styles/hover_pressed = SubResource("StyleBoxTexture_7ifdj")
