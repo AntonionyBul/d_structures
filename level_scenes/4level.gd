@@ -18,8 +18,17 @@ func _on_button_pressed():
 	if $choose_name.selected != -1:
 		if (task.fourth_task($choose_name.get_text(), $output_2.get_text())):
 			$output_1.set_text("CONGRATS!")
+			$right_glitch.visible = true
+			$right_glitch.play()
+			await get_tree().create_timer(1.0).timeout
+			$right_glitch.visible = false
 		else:
 			$output_1.set_text("WRONG ANSWER")
+			$wrong_glitch.visible = true
+			$wrong_glitch.play()
+			await get_tree().create_timer(1.0).timeout
+			$wrong_glitch.visible = false
+			
 	else:
 		$output_1.set_text("write right wtite")
 

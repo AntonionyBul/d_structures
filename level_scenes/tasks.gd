@@ -121,7 +121,6 @@ func fifth_task(v, s, n):
 	return 0
 
 
-
 func sixth_task(dnf_expression, v):
 	var parse_DNF = func (expression):
 		var dnf_list = []
@@ -130,7 +129,7 @@ func sixth_task(dnf_expression, v):
 		var current_var = ""
 
 		for i in range(0, len(expression)):
-			if expression[i]=='X':
+			if expression[i]=='X' or expression[i]=='x':
 				current_var += expression[i+1]
 			elif expression[i] == "-":
 				is_negative = true
@@ -148,10 +147,8 @@ func sixth_task(dnf_expression, v):
 			dnf_list.append(sub_expression)
 		return dnf_list
 
-	var dnf_expression1 = "X2 -X3"
-	print(dnf_expression)
 	var dnf = parse_DNF.call(dnf_expression+" ")
-	print(dnf)
+
 	var f = func (args: Array):
 		for clause in dnf:
 			var satisfied = true
@@ -167,27 +164,26 @@ func sixth_task(dnf_expression, v):
 		[[false], [true]],
 	[[false, false], [false, true], [true, false], [true, true]],
 	[[false, false, false], [false, false, true], [false, true, false], [false, true, true],
-		[true, false, false], [true, false, true], [true, true, false], [true, true, true]]
-	]
+		[true, false, false], [true, false, true], [true, true, false], [true, true, true]]]
 	
 	var s = ''
 	for i in json_[log(len(v))/log(2)-1]:
 		s += f.call(i)
-	print(s)
 	if s==v:
 		return true
 	return false
 
 
-func seventh_task(knf_expression, v):
-	var parse_KNF = func (expression):
-		var dnf_list = []
+func seventh_task(cnf_expression, v):
+	# Парсер для КНФ
+	var parse_CNF = func (expression):
+		var cnf_list = []
 		var sub_expression = {}
 		var is_negative = false
 		var current_var = ""
 
 		for i in range(0, len(expression)):
-			if expression[i]=='X':
+			if expression[i] == 'X' or expression[i]=='x':
 				current_var += expression[i+1]
 			elif expression[i] == "-":
 				is_negative = true
@@ -197,45 +193,42 @@ func seventh_task(knf_expression, v):
 					sub_expression[var_index] = not is_negative
 					current_var = ""
 					is_negative = false
-			elif expression[i] == "&":
+			elif expression[i] == "&":  # Используем символ ^ для AND
 				if sub_expression:
-					dnf_list.append(sub_expression)
+					cnf_list.append(sub_expression)
 					sub_expression = {}
 		if sub_expression:
-			dnf_list.append(sub_expression)
-		return dnf_list
+			cnf_list.append(sub_expression)
+		return cnf_list
 
-	var knf_expression1 = "X2 -X3"
-	print(knf_expression)
-	var knf = parse_KNF.call(knf_expression+" ")
-	print(knf)
-	var f = func (args: Array):
-		for clause in knf:
-			var satisfied = true
-			for keys in clause:
-				if args[keys-1] != clause[keys]:
-					satisfied = false
-					break
-			if satisfied:
-				return '1'
-		return '0'
+	var cnf = parse_CNF.call(cnf_expression + " ")
 	
+	# Функция для оценки КНФ
+	var f = func (args: Array):
+		for clause in cnf:
+			var satisfied = false
+			for key in clause:
+				if args[key - 1] != clause[key]:
+					satisfied = true
+					break
+			if not satisfied:
+				return '0'
+		return '1'
+
 	var json_ = [
 		[[false], [true]],
-	[[false, false], [false, true], [true, false], [true, true]],
-	[[false, false, false], [false, false, true], [false, true, false], [false, true, true],
-		[true, false, false], [true, false, true], [true, true, false], [true, true, true]]
-	]
+		[[false, false], [false, true], [true, false], [true, true]],
+		[[false, false, false], [false, false, true], [false, true, false], [false, true, true],
+		 [true, false, false], [true, false, true], [true, true, false], [true, true, true]]]
 	
 	var s = ''
-	for i in json_[log(len(v))/log(2)-1]:
+	for i in json_[log(len(v)) / log(2) - 1]:
 		s += f.call(i)
-	print(s)
-	if s==v:
+	s =s.reverse()
+	
+	if s == v:
 		return true
 	return false
-
-
 
 
 #  Пользователь вводит вектор функции. Система строит СДНФ.
@@ -264,7 +257,7 @@ func eigth_task(v):
 	#вот эту штуку потехничнее сделать
 	ans[len(ans)-1]=""
 	ans[len(ans)-1]=""
-	print(ans)
+	return ans
 	
 # Пользователь вводит вектор функции. Система строит СКНФ.
 # v - вектор функции (строка). Возвращаем строку, которая является СКНФ
@@ -289,13 +282,12 @@ func ninth_task(v):
 				else:
 					ans+=" -x"+str(j+1)+" V"
 			ans[len(ans)-1]=""
-			
 			ans+=") & ("
 	#вот эту штуку потехничнее сделать
 	ans[len(ans)-1]=""
 	ans[len(ans)-1]=""
 	ans[len(ans)-1]=""
-	print(ans)
+	return ans
 	
 #Игра. Предполные классы б.ф. Система предлагает вектор функции. Пользователь должен выбрать предполные классы, которым эта функция принадлежит. Система определяет правильно выбраны классы или нет.
 # v - вектор функции (строка), ans - ответ пользователя, это строка, где без пробелов записаны классы, которые выбрал пользователь в порядке T0T1SML и ни в каком другом.
@@ -304,26 +296,21 @@ func tenth_task(v, ans):
 	var s=""
 	if(Is_T0(v)):
 		s+="T0"
-	
 	if(Is_T1(v)):
 		s+="T1"
-	
 	if(Is_S(v)):
 		s+="S"
-	
 	if(Is_M(v)):
 		s+="M"
-	
 	if(Is_L(v)):
 		s+="L"
-			
+		
 	#с проверкой лучше еще пошаманить
-	#print(s)
+	print(s)
 	if(s==ans):
-		print("win")
-	else:
-		print("loose")
-	
+		return true
+	return false
+
 #Игра. Полные системы б.ф. Система предлагает набор векторов функций. Пользователь определяет полным или нет является набор функций. Если система б.ф. неполна, то пользователь должен указать замкнутый класс, которому набор функций принадлежит.
 # system - это система векторов (массив строк), inp - ответ пользователя в таком же формате, как в 10: строка с классами в следующем порядке T0T1SML, 
 func eleventh_task(system, inp):

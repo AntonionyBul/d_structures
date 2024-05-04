@@ -26,17 +26,11 @@ func _on_button_pressed():
 	#$".".set_text($".".get_text().replace("\n", ""))
 	#$".".set_caret_column(1000)  #поменять на перевод в конец строки нормально
 
-
-
 func _on_check_box_2_pressed():
 	second_par = 1
-	print(second_par)
-
 
 func _on_check_box_pressed():
 	second_par = 0
-	print(second_par)
-
 
 func _on_button_2_pressed():
 	$input_1.set_text("")

@@ -3,7 +3,6 @@ extends Control
 @onready var task = preload("res://level_scenes/tasks.gd").new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	task.dnf_from_truth_vector("00001111")
 	pass
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,3 +24,4 @@ func _on_input_1_text_changed():
 
 func _on_button_2_pressed():
 	$input_1.set_text("")
+	$output_1.set_text("")

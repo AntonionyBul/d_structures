@@ -20,18 +20,14 @@ func change_level(new):
 		new = 0
 	recent = new 
 	$".".add_child(levels_scenes[recent].instantiate())
-	$levels_option.selected = recent
+	$level_option.selected = recent
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for i in level_names:
-		$levels_option.add_item(i)
+		$level_option.add_item(i)
 	change_level(recent)
-	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 
 func _on_previous_level_pressed():
 	change_level(recent-1)
@@ -40,5 +36,5 @@ func _on_next_level_pressed():
 	change_level(recent+1)
 
 
-func _on_levels_option_item_selected(index):
+func _on_level_option_item_selected(index):
 	change_level(index)

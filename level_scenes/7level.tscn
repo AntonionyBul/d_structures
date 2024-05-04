@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://dxlqaymo7br1u" path="res://it_tastes_like_SPRITE/Rectangle 2.png" id="4_f7lir"]
 [ext_resource type="Texture2D" uid="uid://d2msq18r3olfy" path="res://it_tastes_like_SPRITE/Group 9.png" id="5_ilv6s"]
 
-[node name="7Level" type="Panel"]
+[node name="7Level" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 offset_left = 256.0
 offset_top = 184.0
 offset_right = 1056.0
@@ -14,6 +16,7 @@ offset_bottom = 524.0
 script = ExtResource("1_vml5d")
 
 [node name="Button3" type="Button" parent="."]
+layout_mode = 0
 offset_left = 171.0
 offset_top = 81.0
 offset_right = 412.0
@@ -30,6 +33,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Button2" type="Button" parent="."]
+layout_mode = 0
 offset_left = 171.0
 offset_top = 158.0
 offset_right = 396.0
@@ -46,6 +50,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Button" type="Button" parent="."]
+layout_mode = 0
 offset_left = 422.0
 offset_top = 158.0
 offset_right = 634.0
@@ -85,6 +90,7 @@ scale = Vector2(1.0386, 1.13636)
 texture = ExtResource("4_f7lir")
 
 [node name="output_2" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 177.0
 offset_top = 26.0
 offset_right = 403.0
@@ -94,6 +100,7 @@ theme_override_fonts/normal_font = ExtResource("3_plvl0")
 theme_override_font_sizes/normal_font_size = 36
 
 [node name="output_1" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 122.0
 offset_top = 234.0
 offset_right = 681.0
@@ -108,6 +115,7 @@ scale = Vector2(0.622378, 0.42381)
 texture = ExtResource("5_ilv6s")
 
 [node name="input_1" type="TextEdit" parent="."]
+layout_mode = 0
 offset_left = 31.0
 offset_top = 77.0
 offset_right = 150.0
@@ -122,6 +130,7 @@ scale = Vector2(0.205263, 0.590909)
 texture = ExtResource("4_f7lir")
 
 [node name="input_2" type="TextEdit" parent="."]
+layout_mode = 0
 offset_left = 422.0
 offset_top = 77.0
 offset_right = 786.0
