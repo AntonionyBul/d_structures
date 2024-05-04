@@ -2,29 +2,28 @@ extends Control
 
 @onready var task = preload("res://level_scenes/tasks.gd").new()
 
-var names = ["тождественный ноль", "тождественная единица", "конъюнкция", "дизъюнкция", "сложение", 
-			"штрих Шеффера", "стрелка Пирса", "импликация", "эквивалентность", "коимпликация",
-			"обратная импликация", "обратная коимпликация", "функция-переменная", "функция-отрицания"]
-
+var v = ""
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$output_1.set_text(task.first_task(2))
-	for i in names:
-		$choose_name.add_item(i)
-		$choose_name.selected = -1
+	pass
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _on_button_pressed():
-	if $choose_name.selected != -1:
-		print($output_1.get_text(), $choose_name.get_text())
-		if (task.fourth_task($choose_name.get_text(), $output_1.get_text())):
-			print("Congrats!")
+	if v != "":
+		if (task.seventh_task($input_2.get_text(), v)):
+			$output_1.set_text("Congrats!")
 		else:
-			print("Loser")
+			$output_1.set_text("Wrong answer")
 	else:
 		$output_1.set_text("write right wtite")
 
+func _on_button_3_pressed():
+	v = task.first_task(int($input_1.get_text()))
+	$output_2.set_text(str(v))
 
-
-func _on_again_pressed():
-	get_tree().change_scene_to_file("res://level_scenes/4level.tscn")
+func _on_button_2_pressed():
+	$input_1.set_text("")
+	$input_2.set_text("")
+	$output_1.set_text("")
+	$output_2.set_text("")

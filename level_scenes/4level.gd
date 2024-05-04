@@ -8,7 +8,7 @@ var names = ["тождественный ноль", "тождественная 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$output_1.set_text(task.first_task(2))
+	
 	for i in names:
 		$choose_name.add_item(i)
 		$choose_name.selected = -1
@@ -16,11 +16,10 @@ func _ready():
 
 func _on_button_pressed():
 	if $choose_name.selected != -1:
-		print($output_1.get_text(), $choose_name.get_text())
-		if (task.fourth_task($choose_name.get_text(), $output_1.get_text())):
-			print("Congrats!")
+		if (task.fourth_task($choose_name.get_text(), $output_2.get_text())):
+			$output_1.set_text("CONGRATS!")
 		else:
-			print("Loser")
+			$output_1.set_text("WRONG ANSWER")
 	else:
 		$output_1.set_text("write right wtite")
 
@@ -28,3 +27,7 @@ func _on_button_pressed():
 
 func _on_again_pressed():
 	get_tree().change_scene_to_file("res://level_scenes/4level.tscn")
+
+
+func _on_button_2_pressed():
+	$output_2.set_text(task.first_task(2))

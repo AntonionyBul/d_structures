@@ -96,28 +96,15 @@ func third_task(vec1, vec2, n):
 #Игра. Узнать имя функции от 2-х аргументов. Система предлагает вектор функции, пользователь выбирает «имя» (одно из 16).
 # Здесь x - это имя функции ,которое выбирает пользователь (вроде строка), y - вектор функции (строка), который ему предлагает система, возврашаем 1, если правильно и 0, если не правильно.
 func fourth_task(x,y):
-	var gr={"0000":"тождественный ноль",
-		"0001":"конъюнкция",
-		"0010":"коимпликация",
-		"0011":"функция-переменная",
-		"0100":"обратная коимпликация",
-		"0101":"функция-переменная",
-		"0110":"сложение",
-		"0111":"дизъюнкция",
-		"1000":"стрелка Пирса",
-		"1001":"эквивалентность",
-		"1010":"функция-отрицания",
-		"1011":"обратная импликация",
-		"1100":"функция-отрицания",
-		"1101":"импликация",
-		"1110":"штрих Шеффера",
-		"1111":"тождественная единица"}
+	var gr={"0000":"тождественный ноль", "0001":"конъюнкция","0010":"коимпликация","0011":"функция-переменная","0100":"обратная коимпликация","0101":"функция-переменная","0110":"сложение","0111":"дизъюнкция","1000":"стрелка Пирса","1001":"эквивалентность","1010":"функция-отрицания","1011":"обратная импликация","1100":"функция-отрицания","1101":"импликация","1110":"штрих Шеффера","1111":"тождественная единица"}
 	if(gr[y]==x):
 		return 1
 	return 0
 # Игра. Существенные и фиктивные переменные. Система предлагает вектор функции. Пользователь выбирает существенные и фиктивные переменные
-# Здесь v - это предлагаемый системой вектор (строка), s - строка с выбранными пользователем переменными по номерам (то есть что-то вроде "123", пишется без пробелов), n - число переменных функции.
-# в идеале от n можно избавиться с помощью логарифмов и находить его в самой функции, но это потом решим. Также вывод следует дописать, так как выводить win в командную строку такое себе.
+# Здесь v - это предлагаемый системой вектор (строка), s - строка с выбранными пользователем переменными по номерам (то есть что-то вроде 
+# "123", пишется без пробелов), n - число переменных функции.
+# в идеале от n можно избавиться с помощью логарифмов и находить его в самой функции, но это потом решим. Также вывод следует дописать,
+# так как выводить win в командную строку такое себе. 
 func fifth_task(v, s, n):
 	var ans=""
 	for i in range (1,n+1):
@@ -126,17 +113,15 @@ func fifth_task(v, s, n):
 	
 	if(s==ans):
 		print("win")
-<<<<<<< HEAD
 	else:
 		print("loose")
 	
-=======
 		return 0
 	print(ans)
 	return 0
->>>>>>> 94ccf88 (add_all_level_scenes)
 
-# сам пиши
+
+
 func sixth_task(dnf_expression, v):
 	var parse_DNF = func (expression):
 		var dnf_list = []
@@ -145,7 +130,7 @@ func sixth_task(dnf_expression, v):
 		var current_var = ""
 
 		for i in range(0, len(expression)):
-			if expression[i]>='A' and expression[i]<='z' and expression[i]!='V':
+			if expression[i]=='X':
 				current_var += expression[i+1]
 			elif expression[i] == "-":
 				is_negative = true
@@ -161,12 +146,12 @@ func sixth_task(dnf_expression, v):
 					sub_expression = {}
 		if sub_expression:
 			dnf_list.append(sub_expression)
-		
 		return dnf_list
 
-	var dnf_expression1 = "X1 - X2 V X3 "
-	var dnf = parse_DNF.call(dnf_expression1)
-
+	var dnf_expression1 = "X2 -X3"
+	print(dnf_expression)
+	var dnf = parse_DNF.call(dnf_expression+" ")
+	print(dnf)
 	var f = func (args: Array):
 		for clause in dnf:
 			var satisfied = true
@@ -175,9 +160,83 @@ func sixth_task(dnf_expression, v):
 					satisfied = false
 					break
 			if satisfied:
-				return true
-		return false
-	print(f)
+				return '1'
+		return '0'
+	
+	var json_ = [
+		[[false], [true]],
+	[[false, false], [false, true], [true, false], [true, true]],
+	[[false, false, false], [false, false, true], [false, true, false], [false, true, true],
+		[true, false, false], [true, false, true], [true, true, false], [true, true, true]]
+	]
+	
+	var s = ''
+	for i in json_[log(len(v))/log(2)-1]:
+		s += f.call(i)
+	print(s)
+	if s==v:
+		return true
+	return false
+
+
+func seventh_task(knf_expression, v):
+	var parse_KNF = func (expression):
+		var dnf_list = []
+		var sub_expression = {}
+		var is_negative = false
+		var current_var = ""
+
+		for i in range(0, len(expression)):
+			if expression[i]=='X':
+				current_var += expression[i+1]
+			elif expression[i] == "-":
+				is_negative = true
+			elif expression[i] == " ":
+				if current_var:
+					var var_index = int(current_var)
+					sub_expression[var_index] = not is_negative
+					current_var = ""
+					is_negative = false
+			elif expression[i] == "&":
+				if sub_expression:
+					dnf_list.append(sub_expression)
+					sub_expression = {}
+		if sub_expression:
+			dnf_list.append(sub_expression)
+		return dnf_list
+
+	var knf_expression1 = "X2 -X3"
+	print(knf_expression)
+	var knf = parse_KNF.call(knf_expression+" ")
+	print(knf)
+	var f = func (args: Array):
+		for clause in knf:
+			var satisfied = true
+			for keys in clause:
+				if args[keys-1] != clause[keys]:
+					satisfied = false
+					break
+			if satisfied:
+				return '1'
+		return '0'
+	
+	var json_ = [
+		[[false], [true]],
+	[[false, false], [false, true], [true, false], [true, true]],
+	[[false, false, false], [false, false, true], [false, true, false], [false, true, true],
+		[true, false, false], [true, false, true], [true, true, false], [true, true, true]]
+	]
+	
+	var s = ''
+	for i in json_[log(len(v))/log(2)-1]:
+		s += f.call(i)
+	print(s)
+	if s==v:
+		return true
+	return false
+
+
+
 
 #  Пользователь вводит вектор функции. Система строит СДНФ.
 # v - вектор функции (строка). Возвращаем строку, которая является СДНФ

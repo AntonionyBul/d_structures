@@ -3,12 +3,8 @@ extends Control
 @onready var task = preload("res://level_scenes/tasks.gd").new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
-<<<<<<< HEAD
-	print("you're gay")
 	task.dnf_from_truth_vector("00001111")
-=======
 	pass
->>>>>>> 94ccf88 (add_all_level_scenes)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -20,12 +16,12 @@ func _on_button_pressed():
 	if $input_1.get_text() != "":
 		var answer = task.first_task(int($input_1.get_text()))
 		$output_1.set_text(str(answer))
-	else:
-		$output_1.set_text("")
-
-
 
 
 func _on_input_1_text_changed():
 	$input_1.set_text($input_1.get_text().replace("\n", ""))
 	$input_1.set_caret_column(1000)  #поменять на перевод в конец строки нормально
+
+
+func _on_button_2_pressed():
+	$input_1.set_text("")
