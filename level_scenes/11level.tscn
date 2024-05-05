@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://level_scenes/11level.gd" id="1_egh5g"]
 [ext_resource type="VideoStream" path="res://it_tastes_like_SPRITE/wrong_glitch.ogv" id="2_adkj3"]
-[ext_resource type="Theme" uid="uid://fxrgpeh8cmpw" path="res://it_tastes_like_SPRITE/buttons.tres" id="2_cydo1"]
+[ext_resource type="Theme" uid="uid://fxrgpeh8cmpw" path="res://it_tastes_like_SPRITE_matrix/buttons.tres" id="2_cydo1"]
 [ext_resource type="VideoStream" path="res://it_tastes_like_SPRITE/right_glitch.ogv" id="3_aptww"]
-[ext_resource type="FontFile" uid="uid://7nwygn2tc1wa" path="res://it_tastes_like_SPRITE/refinery-25-semi-bold-maisfontes.fbec/refinery-25-semi-bold.ttf" id="3_nnyuy"]
-[ext_resource type="Texture2D" uid="uid://dxlqaymo7br1u" path="res://it_tastes_like_SPRITE/Rectangle 2.png" id="4_gaiwj"]
-[ext_resource type="Texture2D" uid="uid://d2msq18r3olfy" path="res://it_tastes_like_SPRITE/Group 9.png" id="5_3epx1"]
-[ext_resource type="Theme" uid="uid://c8i5xk68yki12" path="res://it_tastes_like_SPRITE/check_box.tres" id="6_sil14"]
+[ext_resource type="FontFile" uid="uid://7nwygn2tc1wa" path="res://it_tastes_like_SPRITE_matrix/refinery-25-semi-bold-maisfontes.fbec/refinery-25-semi-bold.ttf" id="3_nnyuy"]
+[ext_resource type="Texture2D" uid="uid://dxlqaymo7br1u" path="res://it_tastes_like_SPRITE_matrix/Rectangle 2.png" id="4_gaiwj"]
+[ext_resource type="Texture2D" uid="uid://d2msq18r3olfy" path="res://it_tastes_like_SPRITE_matrix/Group 9.png" id="5_3epx1"]
+[ext_resource type="Theme" uid="uid://c8i5xk68yki12" path="res://it_tastes_like_SPRITE_matrix/check_box.tres" id="6_sil14"]
 
 [node name="11Level" type="Control"]
 layout_mode = 3
