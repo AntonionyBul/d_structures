@@ -103,7 +103,7 @@ grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_o6p4h")
 theme_override_font_sizes/normal_font_size = 23
-text = "Каким классам пренадлежит вектор?"
+text = "Каким классам принадлежит вектор?"
 
 [node name="Rectangle2" type="Sprite2D" parent="."]
 position = Vector2(404, 270)

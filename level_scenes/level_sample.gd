@@ -12,7 +12,17 @@ preload("res://level_scenes/12level.tscn") ]
 var recent = 0
 var level_advices = [
 	preload("res://advices/1advice.tscn"),
-	#preload("res://advices/2advice.tscn"),
+	preload("res://advices/2advice.tscn"),
+	preload("res://advices/3advice.tscn"),
+	preload("res://advices/4advice.tscn"),
+	preload("res://advices/5advice.tscn"),
+	preload("res://advices/6advice.tscn"),
+	preload("res://advices/7advice.tscn"),
+	preload("res://advices/8advice.tscn"),
+	preload("res://advices/9advice.tscn"),
+	preload("res://advices/10advice.tscn"),
+	preload("res://advices/11advice.tscn"),
+	preload("res://advices/12advice.tscn")
 	
 ]
 

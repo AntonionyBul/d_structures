@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cjumiuds0dnkk"]
+[gd_scene load_steps=14 format=3 uid="uid://dqbe281btshkl"]
 
 [ext_resource type="Script" path="res://level_scenes/5level.gd" id="1_u6ya3"]
 [ext_resource type="VideoStream" path="res://it_tastes_like_SPRITE/wrong_glitch.ogv" id="2_oh4kr"]
