@@ -3,8 +3,8 @@
 [ext_resource type="VideoStream" path="res://it_tastes_like_SPRITE/right_looop.ogv" id="1_3yeu5"]
 [ext_resource type="Script" path="res://main_scene.gd" id="1_chhuu"]
 [ext_resource type="VideoStream" path="res://it_tastes_like_SPRITE/right_gif.ogv" id="1_jkeie"]
-[ext_resource type="Theme" uid="uid://fxrgpeh8cmpw" path="res://it_tastes_like_SPRITE/buttons.tres" id="4_yxncm"]
-[ext_resource type="FontFile" uid="uid://7nwygn2tc1wa" path="res://it_tastes_like_SPRITE/refinery-25-semi-bold-maisfontes.fbec/refinery-25-semi-bold.ttf" id="5_dnrap"]
+[ext_resource type="Theme" uid="uid://fxrgpeh8cmpw" path="res://it_tastes_like_SPRITE_matrix/buttons.tres" id="4_yxncm"]
+[ext_resource type="FontFile" uid="uid://7nwygn2tc1wa" path="res://it_tastes_like_SPRITE_matrix/refinery-25-semi-bold-maisfontes.fbec/refinery-25-semi-bold.ttf" id="5_dnrap"]
 
 [node name="MainScene" type="Control"]
 layout_mode = 3

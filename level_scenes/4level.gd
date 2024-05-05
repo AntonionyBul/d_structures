@@ -1,6 +1,6 @@
 extends Control
 
-@onready var task = preload("res://level_scenes/tasks.gd").new()
+@onready var task = preload("res://tasks.gd").new()
 
 var names = ["тождественный ноль", "тождественная единица", "конъюнкция", "дизъюнкция", "сложение", 
 			"штрих Шеффера", "стрелка Пирса", "импликация", "эквивалентность", "коимпликация",

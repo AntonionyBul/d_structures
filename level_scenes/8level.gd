@@ -1,6 +1,6 @@
 extends Control
 
-@onready var task = preload("res://level_scenes/tasks.gd").new()
+@onready var task = preload("res://tasks.gd").new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
