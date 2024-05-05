@@ -239,7 +239,6 @@ func eigth_task(v):
 					ans+=" -x"+str(j+1)+" &"
 			ans[len(ans)-1]=""
 			ans+=" V "
-	#вот эту штуку потехничнее сделать
 	ans[len(ans)-1]=""
 	ans[len(ans)-1]=""
 	return ans

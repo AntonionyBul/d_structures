@@ -207,6 +207,24 @@ position = Vector2(80.9999, 26)
 scale = Vector2(0.280702, 0.590909)
 texture = ExtResource("4_bruj5")
 
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -193.0
+offset_top = -319.0
+offset_right = 268.0
+offset_bottom = -243.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_lxng4")
+theme_override_font_sizes/normal_font_size = 74
+text = "Поиск остаточной"
+
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CheckBox2" to="." method="_on_check_box_2_pressed"]

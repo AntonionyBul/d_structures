@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://dhsmbve1axrny"]
 
 [ext_resource type="Script" path="res://level_scenes/3level.gd" id="1_x8stg"]
-[ext_resource type="Theme" uid="uid://fxrgpeh8cmpw" path="res://it_tastes_like_SPRITE/buttons.tres" id="2_wei7x"]
-[ext_resource type="FontFile" uid="uid://7nwygn2tc1wa" path="res://it_tastes_like_SPRITE/refinery-25-semi-bold-maisfontes.fbec/refinery-25-semi-bold.ttf" id="3_ctfc8"]
-[ext_resource type="Texture2D" uid="uid://dxlqaymo7br1u" path="res://it_tastes_like_SPRITE/Rectangle 2.png" id="4_2f0xa"]
-[ext_resource type="Texture2D" uid="uid://d2msq18r3olfy" path="res://it_tastes_like_SPRITE/Group 9.png" id="5_vvbgo"]
+[ext_resource type="Theme" uid="uid://fxrgpeh8cmpw" path="res://it_tastes_like_SPRITE_matrix/buttons.tres" id="2_wei7x"]
+[ext_resource type="FontFile" uid="uid://7nwygn2tc1wa" path="res://it_tastes_like_SPRITE_matrix/refinery-25-semi-bold-maisfontes.fbec/refinery-25-semi-bold.ttf" id="3_ctfc8"]
+[ext_resource type="Texture2D" uid="uid://dxlqaymo7br1u" path="res://it_tastes_like_SPRITE_matrix/Rectangle 2.png" id="4_2f0xa"]
+[ext_resource type="Texture2D" uid="uid://d2msq18r3olfy" path="res://it_tastes_like_SPRITE_matrix/Group 9.png" id="5_vvbgo"]
 
 [node name="3Level" type="Control"]
 layout_mode = 3
@@ -178,6 +178,24 @@ theme_override_font_sizes/font_size = 30
 position = Vector2(122.5, 26)
 scale = Vector2(0.426316, 0.590909)
 texture = ExtResource("4_2f0xa")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -342.0
+offset_top = -320.0
+offset_right = 363.0
+offset_bottom = -244.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_ctfc8")
+theme_override_font_sizes/normal_font_size = 74
+text = "Вектор из двух остаточных"
 
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
