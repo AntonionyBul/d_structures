@@ -48,7 +48,7 @@ func _on_button_3_pressed():
 	$X3_sush.hide(); $X3_sush/X3_sush.hide(); $X3_sush.button_pressed = false; $X3_sush/X3_sush.button_pressed = false;
 	$X4_sush.hide(); $X4_sush/X4_sush.hide(); $X4_sush.button_pressed = false; $X4_sush/X4_sush.button_pressed = false;
 	$X5_sush.hide(); $X5_sush/X5_sush.hide(); $X5_sush.button_pressed = false; $X5_sush/X5_sush.button_pressed = false;
-	
+
 	if int($input_1.get_text()) > 4:
 		$X5_sush.show(); $X5_sush/X5_sush.show()
 	if int($input_1.get_text()) > 3:

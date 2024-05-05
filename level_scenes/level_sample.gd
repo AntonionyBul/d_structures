@@ -10,7 +10,11 @@ preload("res://level_scenes/8level.tscn"), preload("res://level_scenes/9level.ts
 preload("res://level_scenes/10level.tscn"), preload("res://level_scenes/11level.tscn"), 
 preload("res://level_scenes/12level.tscn") ]
 var recent = 0
-
+var level_advices = [
+	preload("res://advices/1advice.tscn"),
+	#preload("res://advices/2advice.tscn"),
+	
+]
 
 func change_level(new):
 	if recent != new: 
@@ -38,3 +42,12 @@ func _on_next_level_pressed():
 
 func _on_level_option_item_selected(index):
 	change_level(index)
+
+var its_on = false
+func _on_back_to_levels_2_pressed():
+	if its_on:
+		remove_child($".".get_child(-1))
+		its_on = false
+	else:
+		its_on = true
+		add_child(level_advices[recent].instantiate())
