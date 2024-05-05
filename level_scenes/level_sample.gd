@@ -1,14 +1,14 @@
 extends Control
 
-#	var levels = preload("res://level_scenes_matrix/levels_scene.tscn")
+#	var levels = preload("res://level_scenes/levels_scene.tscn")
 var level_names = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-var levels_scenes = [ preload("res://level_scenes_matrix/1level.tscn"),
-preload("res://level_scenes_matrix/2level.tscn"), preload("res://level_scenes_matrix/3level.tscn"),
-preload("res://level_scenes_matrix/4level.tscn"), preload("res://level_scenes_matrix/5level.tscn"), 
-preload("res://level_scenes_matrix/6level.tscn"), preload("res://level_scenes_matrix/7level.tscn"), 
-preload("res://level_scenes_matrix/8level.tscn"), preload("res://level_scenes_matrix/9level.tscn"), 
-preload("res://level_scenes_matrix/10level.tscn"), preload("res://level_scenes_matrix/11level.tscn"), 
-preload("res://level_scenes_matrix/12level.tscn") ]
+var levels_scenes = [ preload("res://level_scenes/1level.tscn"),
+preload("res://level_scenes/2level.tscn"), preload("res://level_scenes/3level.tscn"),
+preload("res://level_scenes/4level.tscn"), preload("res://level_scenes/5level.tscn"), 
+preload("res://level_scenes/6level.tscn"), preload("res://level_scenes/7level.tscn"), 
+preload("res://level_scenes/8level.tscn"), preload("res://level_scenes/9level.tscn"), 
+preload("res://level_scenes/10level.tscn"), preload("res://level_scenes/11level.tscn"), 
+preload("res://level_scenes/12level.tscn") ]
 var recent = 0
 var level_advices = [
 	preload("res://advices/1advice.tscn"),
