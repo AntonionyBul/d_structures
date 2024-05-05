@@ -1,6 +1,6 @@
 extends Control
 
-var levels = preload("res://level_scenes/levels_scene.tscn")
+#	var levels = preload("res://level_scenes/levels_scene.tscn")
 var level_names = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
 var levels_scenes = [ preload("res://level_scenes/1level.tscn"),
 preload("res://level_scenes/2level.tscn"), preload("res://level_scenes/3level.tscn"),
@@ -9,7 +9,7 @@ preload("res://level_scenes/6level.tscn"), preload("res://level_scenes/7level.ts
 preload("res://level_scenes/8level.tscn"), preload("res://level_scenes/9level.tscn"), 
 preload("res://level_scenes/10level.tscn"), preload("res://level_scenes/11level.tscn"), 
 preload("res://level_scenes/12level.tscn") ]
-var recent = 1
+var recent = 0
 
 
 func change_level(new):

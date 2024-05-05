@@ -19,6 +19,7 @@ script = ExtResource("1_2uac1")
 
 [node name="wrong_glitch" type="VideoStreamPlayer" parent="."]
 visible = false
+layout_mode = 0
 offset_left = -256.0
 offset_top = -184.0
 offset_right = 1024.0
@@ -27,6 +28,7 @@ stream = ExtResource("2_0up37")
 
 [node name="right_glitch" type="VideoStreamPlayer" parent="."]
 visible = false
+layout_mode = 0
 offset_left = -256.0
 offset_top = -184.0
 offset_right = 1024.0
