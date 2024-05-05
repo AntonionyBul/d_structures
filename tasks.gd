@@ -413,3 +413,7 @@ func twelveth_task(truth_vector):
 #по сути функция twelveth_task(s) и не нужна, так как она в консоль выводит результат, который возвращает dnf_from_truth_vector(truth_vector)
 #func twelveth_task(s):
 #	return (dnf_from_truth_vector(s))
+<<<<<<< HEAD
+=======
+
+>>>>>>> cbc8463 (optimization)
