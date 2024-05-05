@@ -19,6 +19,7 @@ grow_vertical = 2
 script = ExtResource("1_f1n8i")
 
 [node name="Button2" type="Button" parent="."]
+layout_mode = 0
 offset_left = 187.0
 offset_top = 158.0
 offset_right = 412.0
@@ -35,6 +36,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Button" type="Button" parent="."]
+layout_mode = 0
 offset_left = 422.0
 offset_top = 158.0
 offset_right = 634.0
@@ -51,6 +53,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="input_1" type="TextEdit" parent="."]
+layout_mode = 0
 offset_left = 240.0
 offset_top = 93.0
 offset_right = 570.0
@@ -70,6 +73,7 @@ scale = Vector2(1.0386, 1.13636)
 texture = ExtResource("4_8iqfv")
 
 [node name="output_1" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 122.0
 offset_top = 234.0
 offset_right = 681.0

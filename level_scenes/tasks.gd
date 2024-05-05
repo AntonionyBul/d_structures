@@ -112,13 +112,8 @@ func fifth_task(v, s, n):
 			ans+=str(i)
 	
 	if(s==ans):
-		print("win")
-	else:
-		print("loose")
-	
-		return 0
-	print(ans)
-	return 0
+		return true
+	return false
 
 
 func sixth_task(dnf_expression, v):

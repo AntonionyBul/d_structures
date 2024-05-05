@@ -19,7 +19,9 @@
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_54lj0"]
 
-[node name="5Level" type="Panel"]
+[node name="5Level" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 offset_left = 256.0
 offset_top = 184.0
 offset_right = 1056.0
@@ -28,6 +30,7 @@ script = ExtResource("1_u6ya3")
 
 [node name="wrong_glitch" type="VideoStreamPlayer" parent="."]
 visible = false
+layout_mode = 0
 offset_left = -256.0
 offset_top = -184.0
 offset_right = 1024.0
@@ -36,13 +39,15 @@ stream = ExtResource("2_oh4kr")
 
 [node name="right_glitch" type="VideoStreamPlayer" parent="."]
 visible = false
+layout_mode = 0
 offset_left = -256.0
 offset_top = -184.0
 offset_right = 1024.0
 offset_bottom = 616.0
 stream = ExtResource("3_hnbv7")
 
-[node name="again" type="Button" parent="."]
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
 offset_left = 187.0
 offset_top = 158.0
 offset_right = 412.0
@@ -59,6 +64,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Button" type="Button" parent="."]
+layout_mode = 0
 offset_left = 422.0
 offset_top = 158.0
 offset_right = 634.0
@@ -80,6 +86,7 @@ scale = Vector2(1.0386, 1.13636)
 texture = ExtResource("6_ohfy6")
 
 [node name="output_1" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 122.0
 offset_top = 234.0
 offset_right = 681.0
@@ -88,6 +95,8 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("4_y7mir")
 
 [node name="X5_sush" type="CheckBox" parent="."]
+visible = false
+layout_mode = 0
 offset_left = 745.0
 offset_top = 43.0
 offset_right = 781.0
@@ -106,6 +115,7 @@ theme_override_font_sizes/normal_font_size = 32
 text = "X5"
 
 [node name="X5_sush" type="CheckBox" parent="X5_sush"]
+layout_mode = 0
 offset_top = 51.0
 offset_right = 36.0
 offset_bottom = 87.0
@@ -113,6 +123,8 @@ theme = ExtResource("7_fhkq2")
 button_group = SubResource("ButtonGroup_x0ep6")
 
 [node name="X4_sush" type="CheckBox" parent="."]
+visible = false
+layout_mode = 0
 offset_left = 693.0
 offset_top = 43.0
 offset_right = 729.0
@@ -131,6 +143,7 @@ theme_override_font_sizes/normal_font_size = 32
 text = "X4"
 
 [node name="X4_sush" type="CheckBox" parent="X4_sush"]
+layout_mode = 0
 offset_top = 51.0
 offset_right = 36.0
 offset_bottom = 87.0
@@ -138,6 +151,8 @@ theme = ExtResource("7_fhkq2")
 button_group = SubResource("ButtonGroup_doikv")
 
 [node name="X3_sush" type="CheckBox" parent="."]
+visible = false
+layout_mode = 0
 offset_left = 640.0
 offset_top = 43.0
 offset_right = 676.0
@@ -156,6 +171,7 @@ theme_override_font_sizes/normal_font_size = 32
 text = "X3"
 
 [node name="X3_sush" type="CheckBox" parent="X3_sush"]
+layout_mode = 0
 offset_top = 51.0
 offset_right = 36.0
 offset_bottom = 87.0
@@ -163,6 +179,8 @@ theme = ExtResource("7_fhkq2")
 button_group = SubResource("ButtonGroup_ywobk")
 
 [node name="X2_sush" type="CheckBox" parent="."]
+visible = false
+layout_mode = 0
 offset_left = 589.0
 offset_top = 43.0
 offset_right = 625.0
@@ -181,6 +199,7 @@ theme_override_font_sizes/normal_font_size = 32
 text = "X2"
 
 [node name="X2_sush" type="CheckBox" parent="X2_sush"]
+layout_mode = 0
 offset_top = 51.0
 offset_right = 36.0
 offset_bottom = 87.0
@@ -188,6 +207,8 @@ theme = ExtResource("7_fhkq2")
 button_group = SubResource("ButtonGroup_h4sx4")
 
 [node name="X1_sush" type="CheckBox" parent="."]
+visible = false
+layout_mode = 0
 offset_left = 538.0
 offset_top = 43.0
 offset_right = 574.0
@@ -206,6 +227,7 @@ theme_override_font_sizes/normal_font_size = 32
 text = "X1"
 
 [node name="X1_sush" type="CheckBox" parent="X1_sush"]
+layout_mode = 0
 offset_top = 51.0
 offset_right = 36.0
 offset_bottom = 87.0
@@ -213,6 +235,7 @@ theme = ExtResource("7_fhkq2")
 button_group = SubResource("ButtonGroup_54lj0")
 
 [node name="Button3" type="Button" parent="."]
+layout_mode = 0
 offset_left = 153.0
 offset_top = 81.0
 offset_right = 394.0
@@ -229,6 +252,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="output_2" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 159.0
 offset_top = 26.0
 offset_right = 385.0
@@ -238,6 +262,7 @@ theme_override_fonts/normal_font = ExtResource("4_y7mir")
 theme_override_font_sizes/normal_font_size = 36
 
 [node name="input_1" type="TextEdit" parent="."]
+layout_mode = 0
 offset_left = 13.0
 offset_top = 77.0
 offset_right = 132.0
@@ -292,6 +317,7 @@ theme_override_font_sizes/normal_font_size = 20
 text = "Существенные"
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 421.0
 offset_top = 94.0
 offset_right = 537.0
@@ -301,5 +327,29 @@ theme_override_fonts/normal_font = ExtResource("4_y7mir")
 theme_override_font_sizes/normal_font_size = 20
 text = "Фиктивные"
 
+[node name="SprClosed" type="Sprite2D" parent="."]
+position = Vector2(662.5, 80)
+scale = Vector2(0.438811, 0.590476)
+texture = ExtResource("8_imgl5")
+
+[node name="TxtClosed" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 158.0
+offset_top = -99.0
+offset_right = 385.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.760784, 0.164706, 0.0588235, 1)
+theme_override_fonts/normal_font = ExtResource("4_y7mir")
+theme_override_font_sizes/normal_font_size = 18
+text = "Для начала сгенерируйте функцию"
+
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

@@ -1,17 +1,37 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjumiuds0dnkk"]
+[gd_scene load_steps=8 format=3 uid="uid://cjumiuds0dnkk"]
 
 [ext_resource type="Script" path="res://level_scenes/6level.gd" id="1_2uac1"]
 [ext_resource type="Theme" uid="uid://fxrgpeh8cmpw" path="res://it_tastes_like_SPRITE/buttons.tres" id="2_0ixhd"]
+[ext_resource type="VideoStream" path="res://it_tastes_like_SPRITE/wrong_glitch.ogv" id="2_0up37"]
+[ext_resource type="VideoStream" path="res://it_tastes_like_SPRITE/right_glitch.ogv" id="3_3ds1w"]
 [ext_resource type="FontFile" uid="uid://7nwygn2tc1wa" path="res://it_tastes_like_SPRITE/refinery-25-semi-bold-maisfontes.fbec/refinery-25-semi-bold.ttf" id="3_urvha"]
 [ext_resource type="Texture2D" uid="uid://dxlqaymo7br1u" path="res://it_tastes_like_SPRITE/Rectangle 2.png" id="4_trwoo"]
 [ext_resource type="Texture2D" uid="uid://d2msq18r3olfy" path="res://it_tastes_like_SPRITE/Group 9.png" id="5_hpy2n"]
 
-[node name="6Level" type="Panel"]
+[node name="6Level" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 offset_left = 256.0
 offset_top = 184.0
 offset_right = 1056.0
 offset_bottom = 524.0
 script = ExtResource("1_2uac1")
+
+[node name="wrong_glitch" type="VideoStreamPlayer" parent="."]
+visible = false
+offset_left = -256.0
+offset_top = -184.0
+offset_right = 1024.0
+offset_bottom = 616.0
+stream = ExtResource("2_0up37")
+
+[node name="right_glitch" type="VideoStreamPlayer" parent="."]
+visible = false
+offset_left = -256.0
+offset_top = -184.0
+offset_right = 1024.0
+offset_bottom = 616.0
+stream = ExtResource("3_3ds1w")
 
 [node name="Button3" type="Button" parent="."]
 layout_mode = 0

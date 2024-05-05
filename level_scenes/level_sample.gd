@@ -36,6 +36,5 @@ func _on_previous_level_pressed():
 func _on_next_level_pressed():
 	change_level(recent+1)
 
-
 func _on_level_option_item_selected(index):
 	change_level(index)
