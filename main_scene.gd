@@ -16,3 +16,7 @@ func intro():
 	$VideoStreamPlayer.visible = false
 	$VideoStreamPlayer2.play()
 	
+
+
+func _on_button_pressed():
+	add_child(preload("res://level_scenes/level_sample.tscn").instantiate())
