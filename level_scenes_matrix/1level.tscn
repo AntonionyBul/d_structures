@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d2msq18r3olfy" path="res://it_tastes_like_SPRITE_matrix/Group 9.png" id="2_gon7m"]
 [ext_resource type="Theme" uid="uid://fxrgpeh8cmpw" path="res://it_tastes_like_SPRITE_matrix/buttons.tres" id="2_hdnnf"]
 [ext_resource type="Texture2D" uid="uid://dxlqaymo7br1u" path="res://it_tastes_like_SPRITE_matrix/Rectangle 2.png" id="3_d5qs3"]
-[ext_resource type="FontFile" uid="uid://7nwygn2tc1wa" path="res://it_tastes_like_SPRITE_matrix/refinery-25-semi-bold-maisfontes.fbec/refinery-25-semi-bold.ttf" id="3_pok20"]
+[ext_resource type="FontFile" uid="uid://dqdpo51e81uck" path="res://it_tastes_like_SPRITE_matrix/refinery-25-semi-bold-maisfontes.fbec/refinery-25-semi-bold.ttf" id="3_pok20"]
 
 [sub_resource type="Theme" id="Theme_djtgx"]
 
@@ -81,7 +81,9 @@ offset_left = 122.0
 offset_top = 234.0
 offset_right = 681.0
 offset_bottom = 299.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_pok20")
+theme_override_font_sizes/normal_font_size = 32
 
 [node name="Group9" type="Sprite2D" parent="."]
 position = Vector2(417.79, 54.75)
@@ -104,6 +106,24 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_pok20")
 theme_override_font_sizes/normal_font_size = 74
 text = "Введите число"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -326.0
+offset_top = -320.0
+offset_right = 379.0
+offset_bottom = -244.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_pok20")
+theme_override_font_sizes/normal_font_size = 74
+text = "Функция от N переменных"
 
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
