@@ -62,10 +62,7 @@ func first_task(n):
 # На вход — вектор функции (v), 0 или 1 (bi), номер аргумента (n), на выход — соответствующая остаточная (строка s)
 func second_task(vec, bi, n):
 	var cnt=0
-	var m=len(vec)
-	while(m!=1):
-		m=m>>1
-		cnt+=1
+	cnt=int(log(len(vec))/log(2))
 	n=cnt-n+1
 	var s=""
 	for i in range(0, len(vec)):
@@ -77,10 +74,7 @@ func second_task(vec, bi, n):
 func third_task(vec1, vec2, n):
 	#сократить код
 	var cnt=0
-	var m=len(vec1)+len(vec2)
-	while(m!=1):
-		m=m>>1
-		cnt+=1
+	cnt=int(log(len(vec1)+len(vec2))/log(2))
 	n=cnt-n+1
 	var s=""
 	var x=0
@@ -110,7 +104,6 @@ func fifth_task(v, s, n):
 	for i in range (1,n+1):
 		if second_task(v,0,i)==second_task(v,1,i):
 			ans+=str(i)
-	
 	if(s==ans):
 		return true
 	return false
@@ -231,10 +224,7 @@ func seventh_task(cnf_expression, v):
 func eigth_task(v):
 	var ans=""
 	var cnt=0
-	var m=len(v)
-	while(m!=1):
-		m=m>>1
-		cnt+=1
+	cnt=int(log(len(v))/log(2))
 	var matrix = []
 	for i in range (0, 1<<cnt):
 		matrix.append([])
@@ -259,10 +249,7 @@ func eigth_task(v):
 func ninth_task(v):
 	var ans=""
 	var cnt=0
-	var m=len(v)
-	while(m!=1):
-		m=m>>1
-		cnt+=1
+	cnt=int(log(len(v))/log(2))
 	var matrix = []
 	for i in range (0, 1<<cnt):
 		matrix.append([])
@@ -411,11 +398,10 @@ func minimize_terms(terms):
 		for x in term:
 			if x!="-":
 				dop.append(x)
-		result.append(" ∧ ".join(dop))
-		#result.append(" ∧ ".join([x for x in term if x != "-"]))
+		result.append(" & ".join(dop))
 	return result
 
-func dnf_from_truth_vector(truth_vector):
+func twelveth_task(truth_vector):
 	var num_vars = log(len(truth_vector))/log(2)
 	var terms = []
 	
@@ -424,8 +410,7 @@ func dnf_from_truth_vector(truth_vector):
 			terms.append(generate_term(i, num_vars))
 	
 	var minimized_terms = minimize_terms(terms)
-	return " ∨ ".join(minimized_terms)
+	return " v ".join(minimized_terms)
 #по сути функция twelveth_task(s) и не нужна, так как она в консоль выводит результат, который возвращает dnf_from_truth_vector(truth_vector)
-func twelveth_task(s):
-	return (dnf_from_truth_vector(s))
-
+#func twelveth_task(s):
+#	return (dnf_from_truth_vector(s))
