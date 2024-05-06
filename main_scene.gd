@@ -19,4 +19,5 @@ func intro():
 
 
 func _on_button_pressed():
-	add_child(preload("res://level_scenes/level_sample.tscn").instantiate())
+	#add_child(preload("res://level_scenes/level_sample.tscn").instantiate())
+	get_tree().change_scene_to_file("res://level_scenes/level_sample.tscn")
