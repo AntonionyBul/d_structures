@@ -413,3 +413,427 @@ func twelveth_task(truth_vector):
 #по сути функция twelveth_task(s) и не нужна, так как она в консоль выводит результат, который возвращает dnf_from_truth_vector(truth_vector)
 #func twelveth_task(s):
 #	return (dnf_from_truth_vector(s))
+
+#алгоритм для поиска в глубину
+#на вход матрица смежности и номер вершины, с котрой начинается обход. На выход - массив из посещенных вершин
+func dfs(graph, start):
+	var visited = []
+	var stack = []
+
+	visited.append(start)
+	stack.append(start)
+
+	while stack:
+		var node = stack.pop_back()
+		for index in range(graph.size()):
+			if graph[node][index] == 1 and index not in visited:
+				visited.append(index)
+				stack.append(index)
+	#print(visited)
+	return visited
+
+func bfs(graph, start):
+	var visited = []
+	var stack = []
+
+	visited.append(start)
+	stack.append(start)
+
+	while stack:
+		var node = stack.pop_front()
+		for index in range(graph.size()):
+			if graph[node][index] == 1 and index not in visited:
+				visited.append(index)
+				stack.append(index)
+	#print(visited)
+	return visited
+
+#первое задание - показать порядок посещенных вершин при обходе в глубину, здесь graph - это матрица смежности, представленная массивом массивов.
+#функция в качестве ответа возвращает массив, в котором по порядку записаны пройденные вершины
+func task1(graph):
+	var visited = []
+	visited.resize(len(graph))
+	visited.fill(false)
+	var v2
+	var ans=[]
+	for i in range(0,len(visited)):
+		if not visited[i]:
+			v2=dfs(graph, i)
+			for k in v2:
+				ans.append(k)
+			for j in v2:
+				visited[j]=true
+	#print(ans)
+	return(ans)
+	
+#второе задание - сравнить порядок вершин после dfs'a с порядком, который введет пользователь в кчестве ответа
+#на вход матрица смежности - массив массивов (graph) и answer - массив чисел, вершин которые ввел пользователь
+func task2 (graph, answer):
+	#for i in range(0, len(graph)):
+	if(task1(graph)==answer):
+		print("а ты хорош!")
+		return true
+	print("ну такое")
+	return false
+
+#третье задание - показать порядок посещенных вершин при обходе в ширину, здесь graph - это матрица смежности, представленная массивом массивов.
+#функция в качестве ответа возвращает массив, в котором по порядку записаны пройденные вершины
+func task3(graph):
+	var visited = []
+	visited.resize(len(graph))
+	visited.fill(false)
+	var v2
+	var ans=[]
+	for i in range(0,len(visited)):
+		if not visited[i]:
+			v2=bfs(graph, i)
+			for k in v2:
+				ans.append(k)
+			for j in v2:
+				visited[j]=true
+	#print(ans)
+	return(ans)
+	
+#четвертое задание - сравнить порядок вершин после bfs'a с порядком, который введет пользователь в кчестве ответа
+#на вход матрица смежности - массив массивов (graph) и answer - массив чисел, вершин которые ввел пользователь
+func task4(graph, answer):
+	#for i in range(0, len(graph)):
+	if(task3(graph)==answer):
+		print("а ты хорош!")
+		return true
+	print("ну такое")
+	return false
+	
+#пятое задание - найти число компонент связности
+#на вход матрица смежности - массив массивов (graph), на выход число компонент связности (ks)
+func task5(graph):
+	var ks=0
+	var visited = []
+	visited.resize(len(graph))
+	visited.fill(false)
+	#visited[0]=true
+	#var v2=dfs(graph, 0)
+	#for i in v2:
+	#	visited[i]=true
+	var v2
+	for i in range(0,len(visited)):
+		if not visited[i]:
+			v2=dfs(graph, i)
+			for j in v2:
+				visited[j]=true
+			ks+=1
+	#print(ks)
+	return ks
+	
+#шестое задание: нужно проверить, правильно ли пользователь определил число компонент связности графа
+#на вход матрица смежности - массив массивов (graph) и answer - массив чисел, вершин которые ввел пользователь
+func task6(graph,answer):
+	if(task5(graph)==answer):
+		print("а ты хорош!")
+		return true
+	print("ну такое")
+	return false
+	
+	
+#это жесткая бета версия 0 задания, оно по сути своей объединяет последующие задания, так что его лучше в конце делать
+func task0(vvi):
+	var powers=[]
+	for i in range(0,len(vvi)):
+		var cnt=0
+		for j in range (0, len(vvi[i])):
+			cnt+=vvi[i][j];
+		powers.append(cnt)
+	
+	#var visited = []
+	#visited.resize(len(vvi))
+	#visited.fill(false)
+	#for i in range (0, len(vvi)):
+	#	visited.append(false)
+	var ks=task5(vvi)
+	#for i in range(0,len(vvi)):
+	#	if (visited[i]):
+	#		continue
+	#	ks+=1
+	#	visited[i]=true
+	#	var queue= [i]
+	#	while queue:
+	#		var v=queue.pop_front()
+	#		for h in vvi[v]:
+	#			if not visited[h]:
+	#				visited[h]=true
+	#				queue.append(h)
+	print("степени вершин: ", powers)
+	print("число компонент связности: ",ks)
+	var g=0
+	for i in powers:
+		if(i%2==0):
+			g+=1
+	if(ks==1 and len(powers)-g==0):
+		print("Это эйлеров граф")
+	elif(ks==1 and len(powers)-g<=2):
+		print("Это полуэйлеров граф")
+	else:
+		print("Граф не является эйлеровым или полуэйлеровым")
+		
+	
+	
+	var colors = greedy_graph_coloring(vvi)
+	if(colors.all(less_than_2)):
+		print("Граф двудольный")
+	else:
+		print("граф не двудольный")
+	
+	
+	
+func less_than_2(n):
+	return n<2
+	
+func task8(graph, s):
+	var nv=len(graph)
+	var dist=[]
+	var visited=[]
+	
+	for i in range(0, nv):
+		dist.append(INF)
+		visited.append(false)
+	
+	dist[s]=0
+	
+	for i in range(0,nv):
+		var min_distance=INF
+		var min_index=-1
+		for j in range(0,nv):
+			if visited[j]==false and dist[j]<min_distance:
+				min_distance=dist[j]
+				min_index=j
+			
+		if min_index==-1:
+			break
+		
+		visited[min_index]=true
+		for j in range(0,nv):
+			var new_dist
+			if graph[min_index][j]>0 and not visited[j]:
+				new_dist = dist[min_index] + graph[min_index][j]
+				if new_dist<dist[j]:
+					dist[j]=new_dist
+					
+					
+	
+	return dist
+
+func task9(graph):
+	var ans=[]
+	for i in range(0,len(graph)):
+		ans.append(task8(graph,i))
+	#print (ans)
+	return ans
+
+
+func minKey(key, mstSet):
+	var min = INF
+	var min_index = -1
+	for i in range(key.size()):
+		if not mstSet[i] and key[i] < min:
+			min = key[i]
+			min_index = i
+	return min_index
+
+func task7(graph):
+	var num_vertices = graph.size()
+	var parent = []
+	var key = []
+	var mstSet = []
+
+	
+	key.resize(len(graph))
+	key.fill(INF)
+	mstSet.resize(len(graph))
+	mstSet.fill(false)
+	parent.resize(len(graph))
+	parent.fill(null)
+	key[0] = 0
+	parent[0] = -1
+
+	for count in range(num_vertices - 1):
+		var u = minKey(key, mstSet)
+		mstSet[u] = true
+
+		for v in range(num_vertices):
+			if graph[u][v] and not mstSet[v] and graph[u][v] < key[v]:
+				parent[v] = u
+				key[v] = graph[u][v]
+
+
+	for i in range(1, num_vertices):
+		print(parent[i], "-", i, ":", graph[i][parent[i]])
+		
+
+func prufer_code(adjacency_matrix):
+	var n = adjacency_matrix.size()
+	var degree = []
+	var prufer_code = []
+	
+	# Инициализация массива степеней вершин
+	for i in range(n):
+		var deg = 0
+		for j in range(n):
+			if adjacency_matrix[i][j] > 0:
+				deg += 1
+		degree.append(deg)
+	
+	for k in range(n - 2):
+		# Находим лист с наименьшим номером (степень которого равна 1)
+		var leaf = -1
+		for i in range(n):
+			if degree[i] == 1:
+				leaf = i
+				break
+		
+		# Находим соседа листа и добавляем его в код Прюфера
+		for j in range(n):
+			if adjacency_matrix[leaf][j] > 0:
+				prufer_code.append(j)
+				adjacency_matrix[leaf][j] = 0
+				adjacency_matrix[j][leaf] = 0
+				degree[leaf] -= 1
+				degree[j] -= 1
+				break
+	print(prufer_code)
+	return prufer_code
+
+
+func prufer_decode(code):
+	var n = code.size() + 2 # Количество вершин в дереве
+	var degree = []
+	var adjacency_matrix = []
+	
+	# Инициализация степени вершин и матрицы смежности
+	for i in range(n):
+		degree.append(1) # Устанавливаем начальную степень равной единице для каждой вершины
+		var row = []
+		for j in range(n):
+			row.append(0)
+		adjacency_matrix.append(row)
+	
+	for i in code:
+		degree[i] += 1
+	
+	for i in range(code.size()):
+		# Находим первую вершину с степенью равной 1
+		var u = -1
+		for j in range(n):
+			if degree[j] == 1:
+				u = j
+				break
+		
+		var v = code[i]
+		# Добавляем ребро u - v
+		adjacency_matrix[u][v] = 1
+		adjacency_matrix[v][u] = 1
+		
+		# Уменьшаем степень у использованных вершин
+		degree[u] -= 1
+		degree[v] -= 1
+	
+	# Добавляем последнее ребро между двумя оставшимися вершинами с степенью 1
+	var u = -1
+	var v = -1
+	for i in range(n):
+		if degree[i] == 1:
+			if u == -1:
+				u = i
+			else:
+				v = i
+	
+	adjacency_matrix[u][v] = 1
+	adjacency_matrix[v][u] = 1
+	#print(adjacency_matrix)
+	return adjacency_matrix
+
+
+func greedy_graph_coloring(graph):
+	var num_vertices = len(graph)
+	var result = []
+	
+	for y in range(num_vertices):
+		result.append(-1) # Изначально все вершины имеют цвет -1 (не цветные)
+	
+	result[0] = 0 # Первая вершина раскрашивается в цвет 0
+	
+	var available = []
+	for y in range(num_vertices):
+		available.append(true) # Доступность всех цветов (если true - цвет доступен)
+	
+	for u in range(1, num_vertices):
+		# Маркируем цвета используемые смежными вершинами
+		for i in range(num_vertices):
+			if graph[u][i] == 1 and result[i] != -1:
+				available[result[i]] = false
+		
+		# Находим первый доступный цвет
+		var cr = 0
+		while cr < num_vertices:
+			if available[cr]:
+				break
+			cr += 1
+		
+		result[u] = cr # Назначаем цвет
+		for i in range(num_vertices):
+			available[i] = true # Сброс всех цветов в доступные
+	#print(result)
+	return result
+
+
+func inc_to_adj(inc_graph):
+	var n = len(inc_graph)
+	var m = len(inc_graph[0])
+	
+	# Создаем пустую матрицу смежности
+	var adj_graph = []
+	for i in range(n):
+		adj_graph.append([])
+		for j in range(n):
+			adj_graph[i].append(0)
+	
+	# Проходим по всем ребрам (столбцам матрицы инцидентности)
+	for j in range(m):
+		var vertices = []
+		for i in range(n):
+			if inc_graph[i][j] == 1:
+				vertices.append(i)
+			# Если граф ориентированный, можно добавить условие для -1:
+			# if incidence_matrix[i][j] == -1
+		# Если ребро соединяет две вершины, обновляем матрицу смежности
+		if len(vertices) == 2:
+			adj_graph[vertices[0]][vertices[1]] = 1
+			adj_graph[vertices[1]][vertices[0]] = 1
+	#print(adj_graph)
+	return adj_graph
+
+
+func adj_to_inc(adj_graph):
+	var n = len(adj_graph)
+	var edges = []
+	
+	# Проходим по верхнему треугольнику матрицы смежности, чтобы избежать дублирования рёбер
+	for i in range(n):
+		for j in range(i + 1, n):
+			if adj_graph[i][j] == 1:
+				edges.append([i, j])
+	
+	# Создаем пустую матрицу инцидентности
+	var inc_graph = []
+	for i in range(n):
+		inc_graph.append([])
+		for u in range(len(edges)):
+			inc_graph[i].append(0)
+	
+	# Заполняем матрицу инцидентности
+	for e in range(len(edges)):
+		var u = edges[e][0]
+		var v = edges[e][1]
+		inc_graph[u][e] = 1
+		inc_graph[v][e] = 1
+	#print(inc_graph)
+	return inc_graph

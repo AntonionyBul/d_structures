@@ -4,7 +4,16 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 var second_par = 0
 func _ready():
-	
+	task.task0([
+		[0, 1, 0, 0, 0, 0],
+		[1, 0, 1, 1, 0, 0],
+		[0, 1, 0, 0, 0, 0],
+		[0, 1, 0, 0, 1, 1],
+		[0, 0, 0, 1, 0, 0],
+		[0, 0, 0, 1, 0, 0]
+	])
+	task.adj_to_inc([[0, 1, 1, 0], [1, 0, 1, 1], [1, 1, 0, 1], [0, 1, 1, 0]])
+	task.prufer_decode([1,1,3,3])
 	task.fifth_task("11110000", "23", 3)
 	task.fifth_task('1010', '1100', 2)
 	pass
