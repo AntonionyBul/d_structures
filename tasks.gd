@@ -413,7 +413,7 @@ func twelveth_task(truth_vector):
 #по сути функция twelveth_task(s) и не нужна, так как она в консоль выводит результат, который возвращает dnf_from_truth_vector(truth_vector)
 #func twelveth_task(s):
 #	return (dnf_from_truth_vector(s))
-<<<<<<< HEAD
+
 
 #алгоритм для поиска в глубину
 #на вход матрица смежности и номер вершины, с котрой начинается обход. На выход - массив из посещенных вершин
@@ -838,9 +838,3 @@ func adj_to_inc(adj_graph):
 		inc_graph[v][e] = 1
 	#print(inc_graph)
 	return inc_graph
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> cbc8463 (optimization)
->>>>>>> f6487e6a30557044c96efe78ebb7dc2996285e8b
